@@ -27,4 +27,4 @@ Preguntas asociadas al desarrollo de la práctica:
     Las reglas descritas anteriormente para que haya inversión de secuencia de los LEDs se mantienen iguales pese al supuesto cambio en el tiempo de encendido de cada LED.
 
 ### Nota aclaratoria
-Luego me di cuenta que podría haber usado las funciones "BSP_LED_On" y "BSP_LED_Off" pertenecientes a la HAL de STM para evitar tener que manejar el estado del LED dentro de la función "LED_toggle".
+Me di cuenta que podría haber usado las funciones "BSP_LED_On" y "BSP_LED_Off" pertenecientes a la HAL de STM para evitar tener que manejar el estado del LED haciendo LED_toggle(led, ON) y LED_toggle(led, OFF) dentro de LED_blink.
