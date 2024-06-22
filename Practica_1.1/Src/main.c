@@ -35,6 +35,11 @@
 #define TIMEoN 200  // millis
 #define TIMEoFF 200 // millis
 
+/* Definition for LED States */
+// NOTE: I could have used BSP_LED_On HAL function and avoid the management of the LED's state inside LED_toggle.
+#define ON 1
+#define OFF 0
+
 /* Private macro -------------------------------------------------------------*/
 
 /* Private variables ---------------------------------------------------------*/
@@ -107,9 +112,9 @@ void LED_blink(Led_TypeDef led, uint32_t millisOn, uint32_t millisOff)
     /* Input Error */
     Error_Handler();
   }
-  LED_toggle(led, 1);
+  LED_toggle(led, ON);
   SLEEP_millis(millisOn);
-  LED_toggle(led, 0);
+  LED_toggle(led, OFF);
   SLEEP_millis(millisOff);
 }
 

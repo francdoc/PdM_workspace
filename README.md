@@ -25,3 +25,6 @@ Preguntas asociadas al desarrollo de la práctica:
 4) ¿Cambiaría las respuestas a las preguntas anteriores si el tiempo de encendido de cada led fuera sensiblemente más grande, 1 segundo por ejemplo? ¿Y si fuera  sensiblemente más chico, 50 ms por ejemplo?
 
     Las reglas descritas anteriormente para que haya inversión de secuencia de los LEDs se mantienen iguales pese al supuesto cambio en el tiempo de encendido de cada LED.
+
+### Nota aclaratoria
+Luego me di cuenta que podría haber usado la función "BSP_LED_On" perteneciente a la HAL de STM para evitar tener que manejar el estado del LED dentro de la función "LED_toggle".

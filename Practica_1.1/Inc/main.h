@@ -50,10 +50,6 @@
 #define USARTx_RX_GPIO_PORT              GPIOD
 #define USARTx_RX_AF                     GPIO_AF7_USART3
 
-/* Definition for LED States */
-#define TRUE 1
-#define FALSE 0
-
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
 

@@ -3678,3 +3678,54 @@ java.lang.Exception: Resource '/Practica_1.2' does not exist.
 
 !ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-06-22 18:28:51.883
 !MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-06-22 19:12:37.997
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 73 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-06-22 19:12:38.005
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-06-22 19:12:38.005
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 73 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-06-22 19:12:38.006
+!MESSAGE Existing sessions are:
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2024-06-22 19:12:39.981
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.internal.ui.actions.DsfTerminateCommand$3$1@73b7271d): Status OK: unknown code=0 OK' resulted in a rejected execution exception.
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-06-22 19:12:43.474
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 74 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-06-22 19:12:43.474
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-06-22 19:12:43.474
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 74 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-06-22 19:12:43.474
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-06-22 19:13:28.660
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 76 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-06-22 19:13:28.660
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-06-22 19:13:28.661
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 76 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-06-22 19:13:28.661
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-06-22 19:13:52.217
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 78 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-06-22 19:13:52.217
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-06-22 19:13:52.217
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 78 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-06-22 19:13:52.218
+!MESSAGE Existing sessions are:
