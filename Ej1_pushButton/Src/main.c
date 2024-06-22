@@ -64,7 +64,6 @@ int main(void)
 	/* Initialize BSP PB for BUTTON_USER */
 	BSP_PB_Init(BUTTON_USER, BUTTON_MODE_GPIO);
 
-
 	/* Infinite loop */
 	while (1)
 	{
@@ -73,7 +72,6 @@ int main(void)
 			HAL_Delay(100);
 			BSP_LED_Off(LED1);
 			HAL_Delay(100);
-
 		}
 	}
 }
