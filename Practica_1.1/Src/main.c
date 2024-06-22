@@ -36,7 +36,7 @@
 #define TIMEoFF 200 // millis
 
 /* Definition for LED States */
-// NOTE: I could have used BSP_LED_On HAL function and avoid the management of the LED's state inside LED_toggle.
+// NOTE: I could have used BSP_LED_On HAL and BSP_LED_Off functions and avoid the management of the LED's state inside LED_toggle.
 #define ON 1
 #define OFF 0
 
