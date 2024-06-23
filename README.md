@@ -13,7 +13,7 @@ Docente: Patricio Bos (@patriciobos)
     
     #### Contexto
     ```
-    - https://github.com/francdoc/PdM_workspace/blob/main/Practica_1.2/Src/main.c#L51
+    https://github.com/francdoc/PdM_workspace/blob/main/Practica_1.2/Src/main.c#L51
     ```
 
 2) **¿Cómo responde el programa a las pulsaciones, hay falsos positivos o pulsaciones no detectadas? ¿Se implementa alguna técnica de antirrebote de las pulsaciones?**
@@ -24,8 +24,9 @@ Docente: Patricio Bos (@patriciobos)
 
     #### Contexto
     ```
-    - https://github.com/francdoc/PdM_workspace/blob/main/Practica_1.2/Src/main.c#L198    
-    - https://github.com/francdoc/PdM_workspace/blob/main/Practica_1.2/Src/main.c#L108    
+    https://github.com/francdoc/PdM_workspace/blob/main/Practica_1.2/Src/main.c#L108  
+    
+    https://github.com/francdoc/PdM_workspace/blob/main/Practica_1.2/Src/main.c#L198    
     ```
 
     Cualquier pulsación por fuera de los 2 casos detallados no va a ser detectada por el programa.
@@ -52,6 +53,7 @@ Observé que podría haber utilizado las funciones "BSP_LED_On" y "BSP_LED_Off" 
 
 #### Contexto
 ```
-- https://github.com/francdoc/PdM_workspace/blob/main/Practica_1.2/Src/main.c#L86
-- https://github.com/francdoc/PdM_workspace/blob/main/Practica_1.2/Src/main.c#L108    
+https://github.com/francdoc/PdM_workspace/blob/main/Practica_1.2/Src/main.c#L86
+
+https://github.com/francdoc/PdM_workspace/blob/main/Practica_1.2/Src/main.c#L108    
 ```
