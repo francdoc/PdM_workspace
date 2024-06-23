@@ -9,15 +9,24 @@ Docente: Patricio Bos (@patriciobos)
 
 1) ¿De qué serviría usar un array de “leds” con la secuencia en el programa? ¿Qué pasa con nuestro programa si nos piden agregar/sacar/cambiar un led de la secuencia?
 
-    Una estructura de dato en forma de array de LEDs sirve para concentrar en 1 sólo lugar del código las decisiones de diseño relacionadas a cuántos LEDs utilizar. EN el programa desarrollado para la práctica (si se quiere modificar la secuencia) habría que cambiar en la sección de "Private variables" los arreglos "LED_sequence_1" y "LED_sequence_2": https://github.com/francdoc/PdM_workspace/blob/main/Practica_1.2/Src/main.c#L51.
+    Una estructura de dato en forma de array de LEDs sirve para concentrar en 1 sólo lugar del código las decisiones de diseño relacionadas a cuántos LEDs utilizar. EN el programa desarrollado para la práctica (si se quiere modificar la secuencia) habría que cambiar en la sección de "Private variables" los arreglos "LED_sequence_1" y "LED_sequence_2". 
+    
+    #### Contexto
+    ```
+    - https://github.com/francdoc/PdM_workspace/blob/main/Practica_1.2/Src/main.c#L51
+    ```
 
 2) ¿Cómo responde el programa a las pulsaciones, hay falsos positivos o pulsaciones no detectadas? ¿Se implementa alguna técnica de antirrebote de las pulsaciones?
 
-    Si se presiona 1 sóla vez (por un instante) el botón de usuario azul justo cuando el último LED3 de la secuencia terminó de hacer OFF, se invierte entonces la secuencia de "blink" y
-    el orden de ejecución del "blink" pasa a ser LED3, LED2, LED1, LED3 (...).
+    Si se presiona 1 sóla vez (por un instante) el botón de usuario azul justo cuando el último LED3 de la secuencia terminó de hacer OFF, se invierte entonces la secuencia de "blink" y el orden de ejecución del "blink" pasa a ser LED3, LED2, LED1, LED3 (...).
 
-    Si se mantiene apretado el botón azul durante la ejecución de la secuencia de "blink" {LED1, LED2, LED3, LED1 (...)} hasta que el LED3 termine de cumplir con el tiempo de OFF, entonces
-    la función "get_btn_change" va a ser ejecutada y el estado del botón azul va a ser evaluado. Por lo cual la secuencia de "blink" se invierte y el orden pasaría a ser {LED3, LED2, LED1, LED3 (...)}: 
+    Si se mantiene apretado el botón azul durante la ejecución de la secuencia de "blink" {LED1, LED2, LED3, LED1 (...)} hasta que el LED3 termine de cumplir con el tiempo de OFF, entonces la función "get_btn_change" va a ser ejecutada y el estado del botón azul va a ser evaluado. Por lo cual la secuencia de "blink" se invierte y el orden pasaría a ser {LED3, LED2, LED1, LED3 (...)}: 
+
+    #### Contexto
+    ```
+    - https://github.com/francdoc/PdM_workspace/blob/main/Practica_1.2/Src/main.c#L198    
+    - https://github.com/francdoc/PdM_workspace/blob/main/Practica_1.2/Src/main.c#L108    
+    ```
 
     Cualquier pulsación por fuera de los 2 casos detallados no va a ser detectada por el programa.
 
