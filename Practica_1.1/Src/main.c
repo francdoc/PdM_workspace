@@ -57,7 +57,6 @@ static void Error_Handler(void);
 void LED_blink(Led_TypeDef led, uint32_t millisOn, uint32_t millisOff);
 void SLEEP_millis(uint32_t millis);
 void LED_toggle(Led_TypeDef led, uint8_t state);
-
 int BOARD_setup();
 
 /* Private functions ---------------------------------------------------------*/
@@ -118,6 +117,11 @@ void LED_blink(Led_TypeDef led, uint32_t millisOn, uint32_t millisOff)
   SLEEP_millis(millisOff);
 }
 
+/**
+ * @brief  Initializes the STM32F4xx board, the HAL, system clock configuration and BSP LEDs.
+ * @param  None
+ * @retval int  Returns 0 if initialization is OK.
+ */
 int BOARD_setup()
 {
   /* STM32F4xx HAL library initialization:
