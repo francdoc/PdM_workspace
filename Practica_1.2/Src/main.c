@@ -51,6 +51,9 @@ UART_HandleTypeDef UartHandle;
 Led_TypeDef LED_sequence_1[] = {LED1, LED2, LED3};
 Led_TypeDef LED_sequence_2[] = {LED3, LED2, LED1};
 
+const uint8_t MAXlED_1 = sizeof(LED_sequence_1) / sizeof(Led_TypeDef); // Total number of elements in vector.
+const uint8_t MAXlED_2 = sizeof(LED_sequence_2) / sizeof(Led_TypeDef); // Total number of elements in vector.
+
 /* Private function prototypes -----------------------------------------------*/
 static void SystemClock_Config(void);
 static void Error_Handler(void);
@@ -197,13 +200,11 @@ int main(void)
   {
     if (!get_btn_change())
     {
-      const uint8_t MAXlED = sizeof(LED_sequence_1) / sizeof(Led_TypeDef); // Total number of elements in vector.
-      LED_sequence_blink(LED_sequence_1, MAXlED, TIMEoN, TIMEoFF);
+      LED_sequence_blink(LED_sequence_1, MAXlED_1, TIMEoN, TIMEoFF);
     }
     else
     {
-      const uint8_t MAXlED = sizeof(LED_sequence_2) / sizeof(Led_TypeDef); // Total number of elements in vector.
-      LED_sequence_blink(LED_sequence_2, MAXlED, TIMEoN, TIMEoFF);
+      LED_sequence_blink(LED_sequence_2, MAXlED_2, TIMEoN, TIMEoFF);
     }
   }
 }

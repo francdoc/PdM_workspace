@@ -64,3 +64,7 @@ Practica_1.2/Practica_1.2.launch
 Practica_1.2.array/Practica_1.2.launch
 Practica_1.2.array/Drivers/
 Practica_1.2.array/Debug/
+Practica_2.1.2/Drivers/
+Practica_2.1.2/Debug/
+.metadata/.plugins/
+*/.settings/
