@@ -40,6 +40,7 @@
 
 delay_t delay;
 const uint32_t TIEMPOS[] = {500, 100, 100, 1000};
+const uint8_t T = sizeof(TIEMPOS) / sizeof(uint32_t); // Total number of elements in vector.
 
 /* UART handler declaration */
 UART_HandleTypeDef UartHandle;
@@ -81,51 +82,30 @@ int main(void)
 	delayInit(&delay, TIEMPOS[INITindx]);
 
 	uint8_t halfperiod_counter = 0;
+	uint8_t j = 0;
 
 	BSP_LED_Toggle(LED1);
 
 	/* Infinite loop */
 	while (1)
 	{
-		if (halfperiod_counter<=1)
+		if ((j*2)<=halfperiod_counter && halfperiod_counter<=(j*2+1))
 		{
+			delayWrite(&delay,TIEMPOS[j]);
 			if (delayRead(&delay))
 			{
 				BSP_LED_Toggle(LED1);
 				halfperiod_counter++;
+				if (halfperiod_counter % 2 == 0)
+				{
+					j++;
+				}
 			}
 		}
-		if (2<=halfperiod_counter && halfperiod_counter<=3)
+		if (halfperiod_counter == (T * 2))
 		{
-			delayWrite(&delay,TIEMPOS[1]);
-			if (delayRead(&delay))
-			{
-				BSP_LED_Toggle(LED1);
-				halfperiod_counter++;
-			}
-		}
-		if (4<=halfperiod_counter && halfperiod_counter<=5)
-		{
-			delayWrite(&delay,TIEMPOS[2]);
-			if (delayRead(&delay))
-			{
-				BSP_LED_Toggle(LED1);
-				halfperiod_counter++;
-			}
-		}
-		if (6<=halfperiod_counter && halfperiod_counter<=7)
-		{
-			delayWrite(&delay,TIEMPOS[3]);
-			if (delayRead(&delay))
-			{
-				BSP_LED_Toggle(LED1);
-				halfperiod_counter++;
-			}
-		}
-		if (halfperiod_counter == 8)
-		{
-			delayWrite(&delay,TIEMPOS[INITindx]);
 			halfperiod_counter=0;
+			j = 0;
 		}
 	}
 }
