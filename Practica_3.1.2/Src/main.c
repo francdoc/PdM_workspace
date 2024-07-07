@@ -32,7 +32,6 @@
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
 
-#define DELAYms 100 // Initial delay time in milliseconds
 #define INITindx 0 // Initial index for LED time pattern vector
 
 /* Private macro -------------------------------------------------------------*/
@@ -91,7 +90,9 @@ int main(void)
 	{
 		if ((j*2)<=halfperiod_counter && halfperiod_counter<=(j*2+1))
 		{
-			delayWrite(&delay,TIEMPOS[j]);
+			if (!delayIsRunning(&delay)){
+				delayWrite(&delay,TIEMPOS[j]);
+			}
 			if (delayRead(&delay))
 			{
 				BSP_LED_Toggle(LED1);
