@@ -54,17 +54,12 @@ dkms.conf
 # Add this to avoid saturating repo with metadata
 .metadata/
 Ej0_blinky/
-Practica_1.1/Drivers/
-Practica_1.2/Drivers/
+
+# Ignore builds (Debug folder)
 Practica_1.1/Debug/
 Practica_1.2/Debug/
-Ejercicio_delayNB_1/
-Practica_1.1/Practica_1.1.launch
-Practica_1.2/Practica_1.2.launch
-Practica_1.2.array/Practica_1.2.launch
-Practica_1.2.array/Drivers/
 Practica_1.2.array/Debug/
-Practica_2.1.2/Drivers/
 Practica_2.1.2/Debug/
+Practica_3.1.2/Debug/
 .metadata/.plugins/
 */.settings/
