@@ -291,3 +291,100 @@ arm-none-eabi-size  Practica_3.1.2.elf
    6608	     32	   1584	   8224	   2020	Practica_3.1.2.elf
 Finished building: default.size.stdout
  
+16:31:03 **** Incremental Build of configuration Debug for project Practica_3.1.2 ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F429ZITx -DSTM32F4 -DNUCLEO_F429ZI -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Inc -I"/home/franco/CESE/PDM/PdM_workspace/Practica_3.1.2/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/home/franco/CESE/PDM/PdM_workspace/Practica_3.1.2/Drivers/CMSIS/Include" -I"/home/franco/CESE/PDM/PdM_workspace/Practica_3.1.2/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/home/franco/CESE/PDM/PdM_workspace/Practica_3.1.2/Drivers/BSP/STM32F4xx_Nucleo_144" -I"/home/franco/CESE/PDM/PdM_workspace/Practica_3.1.2/Drivers/Core/Inc" -I"/home/franco/CESE/PDM/PdM_workspace/Practica_3.1.2/Drivers/API" -I"/home/franco/CESE/PDM/PdM_workspace/Practica_3.1.2/Drivers/API/Inc" -I"/home/franco/CESE/PDM/PdM_workspace/Practica_3.1.2/Drivers/API/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Practica_3.1.2.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/franco/CESE/PDM/PdM_workspace/Practica_3.1.2/STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Practica_3.1.2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+/opt/st/stm32cubeide_1.15.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld: warning: Practica_3.1.2.elf has a LOAD segment with RWX permissions
+Finished building target: Practica_3.1.2.elf
+ 
+arm-none-eabi-size  Practica_3.1.2.elf 
+arm-none-eabi-objdump -h -S Practica_3.1.2.elf  > "Practica_3.1.2.list"
+   text	   data	    bss	    dec	    hex	filename
+   6608	     32	   1584	   8224	   2020	Practica_3.1.2.elf
+Finished building: default.size.stdout
+ 
+Finished building: Practica_3.1.2.list
+ 
+16:31:11 **** Incremental Build of configuration Debug for project Practica_3.1.2 ****
+make -j8 all 
+arm-none-eabi-size  Practica_3.1.2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6608	     32	   1584	   8224	   2020	Practica_3.1.2.elf
+Finished building: default.size.stdout
+ 
+17:12:05 **** Incremental Build of configuration Debug for project Practica_3.1.2 ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F429ZITx -DSTM32F4 -DNUCLEO_F429ZI -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Inc -I"/home/franco/CESE/PDM/PdM_workspace/Practica_3.1.2/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/home/franco/CESE/PDM/PdM_workspace/Practica_3.1.2/Drivers/CMSIS/Include" -I"/home/franco/CESE/PDM/PdM_workspace/Practica_3.1.2/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/home/franco/CESE/PDM/PdM_workspace/Practica_3.1.2/Drivers/BSP/STM32F4xx_Nucleo_144" -I"/home/franco/CESE/PDM/PdM_workspace/Practica_3.1.2/Drivers/Core/Inc" -I"/home/franco/CESE/PDM/PdM_workspace/Practica_3.1.2/Drivers/API" -I"/home/franco/CESE/PDM/PdM_workspace/Practica_3.1.2/Drivers/API/Inc" -I"/home/franco/CESE/PDM/PdM_workspace/Practica_3.1.2/Drivers/API/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Practica_3.1.2.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/franco/CESE/PDM/PdM_workspace/Practica_3.1.2/STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Practica_3.1.2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+/opt/st/stm32cubeide_1.15.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld: warning: Practica_3.1.2.elf has a LOAD segment with RWX permissions
+Finished building target: Practica_3.1.2.elf
+ 
+arm-none-eabi-size  Practica_3.1.2.elf 
+arm-none-eabi-objdump -h -S Practica_3.1.2.elf  > "Practica_3.1.2.list"
+   text	   data	    bss	    dec	    hex	filename
+   6620	     32	   1584	   8236	   202c	Practica_3.1.2.elf
+Finished building: default.size.stdout
+ 
+Finished building: Practica_3.1.2.list
+ 
+17:12:12 **** Incremental Build of configuration Debug for project Practica_3.1.2 ****
+make -j8 all 
+arm-none-eabi-size  Practica_3.1.2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6620	     32	   1584	   8236	   202c	Practica_3.1.2.elf
+Finished building: default.size.stdout
+ 
+17:12:27 **** Incremental Build of configuration Debug for project Practica_3.1.2 ****
+make -j8 all 
+arm-none-eabi-size  Practica_3.1.2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6620	     32	   1584	   8236	   202c	Practica_3.1.2.elf
+Finished building: default.size.stdout
+ 
+17:19:23 **** Incremental Build of configuration Debug for project Practica_3.1.2 ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F429ZITx -DSTM32F4 -DNUCLEO_F429ZI -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Inc -I"/home/franco/CESE/PDM/PdM_workspace/Practica_3.1.2/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/home/franco/CESE/PDM/PdM_workspace/Practica_3.1.2/Drivers/CMSIS/Include" -I"/home/franco/CESE/PDM/PdM_workspace/Practica_3.1.2/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/home/franco/CESE/PDM/PdM_workspace/Practica_3.1.2/Drivers/BSP/STM32F4xx_Nucleo_144" -I"/home/franco/CESE/PDM/PdM_workspace/Practica_3.1.2/Drivers/Core/Inc" -I"/home/franco/CESE/PDM/PdM_workspace/Practica_3.1.2/Drivers/API" -I"/home/franco/CESE/PDM/PdM_workspace/Practica_3.1.2/Drivers/API/Inc" -I"/home/franco/CESE/PDM/PdM_workspace/Practica_3.1.2/Drivers/API/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Practica_3.1.2.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/franco/CESE/PDM/PdM_workspace/Practica_3.1.2/STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Practica_3.1.2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+/opt/st/stm32cubeide_1.15.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld: warning: Practica_3.1.2.elf has a LOAD segment with RWX permissions
+Finished building target: Practica_3.1.2.elf
+ 
+arm-none-eabi-size  Practica_3.1.2.elf 
+arm-none-eabi-objdump -h -S Practica_3.1.2.elf  > "Practica_3.1.2.list"
+   text	   data	    bss	    dec	    hex	filename
+   6684	     32	   1584	   8300	   206c	Practica_3.1.2.elf
+Finished building: default.size.stdout
+ 
+Finished building: Practica_3.1.2.list
+ 
+17:19:30 **** Incremental Build of configuration Debug for project Practica_3.1.2 ****
+make -j8 all 
+arm-none-eabi-size  Practica_3.1.2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6684	     32	   1584	   8300	   206c	Practica_3.1.2.elf
+Finished building: default.size.stdout
+ 
+17:20:47 **** Incremental Build of configuration Debug for project Practica_3.1.2 ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F429ZITx -DSTM32F4 -DNUCLEO_F429ZI -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Inc -I"/home/franco/CESE/PDM/PdM_workspace/Practica_3.1.2/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/home/franco/CESE/PDM/PdM_workspace/Practica_3.1.2/Drivers/CMSIS/Include" -I"/home/franco/CESE/PDM/PdM_workspace/Practica_3.1.2/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/home/franco/CESE/PDM/PdM_workspace/Practica_3.1.2/Drivers/BSP/STM32F4xx_Nucleo_144" -I"/home/franco/CESE/PDM/PdM_workspace/Practica_3.1.2/Drivers/Core/Inc" -I"/home/franco/CESE/PDM/PdM_workspace/Practica_3.1.2/Drivers/API" -I"/home/franco/CESE/PDM/PdM_workspace/Practica_3.1.2/Drivers/API/Inc" -I"/home/franco/CESE/PDM/PdM_workspace/Practica_3.1.2/Drivers/API/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F429ZITx -DSTM32F4 -DNUCLEO_F429ZI -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Inc -I"/home/franco/CESE/PDM/PdM_workspace/Practica_3.1.2/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/home/franco/CESE/PDM/PdM_workspace/Practica_3.1.2/Drivers/CMSIS/Include" -I"/home/franco/CESE/PDM/PdM_workspace/Practica_3.1.2/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/home/franco/CESE/PDM/PdM_workspace/Practica_3.1.2/Drivers/BSP/STM32F4xx_Nucleo_144" -I"/home/franco/CESE/PDM/PdM_workspace/Practica_3.1.2/Drivers/Core/Inc" -I"/home/franco/CESE/PDM/PdM_workspace/Practica_3.1.2/Drivers/API" -I"/home/franco/CESE/PDM/PdM_workspace/Practica_3.1.2/Drivers/API/Inc" -I"/home/franco/CESE/PDM/PdM_workspace/Practica_3.1.2/Drivers/API/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp.o"
+arm-none-eabi-gcc "../Drivers/Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F429ZITx -DSTM32F4 -DNUCLEO_F429ZI -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Inc -I"/home/franco/CESE/PDM/PdM_workspace/Practica_3.1.2/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/home/franco/CESE/PDM/PdM_workspace/Practica_3.1.2/Drivers/CMSIS/Include" -I"/home/franco/CESE/PDM/PdM_workspace/Practica_3.1.2/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/home/franco/CESE/PDM/PdM_workspace/Practica_3.1.2/Drivers/BSP/STM32F4xx_Nucleo_144" -I"/home/franco/CESE/PDM/PdM_workspace/Practica_3.1.2/Drivers/Core/Inc" -I"/home/franco/CESE/PDM/PdM_workspace/Practica_3.1.2/Drivers/API" -I"/home/franco/CESE/PDM/PdM_workspace/Practica_3.1.2/Drivers/API/Inc" -I"/home/franco/CESE/PDM/PdM_workspace/Practica_3.1.2/Drivers/API/Src" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/Core/Src/stm32f4xx_it.d" -MT"Drivers/Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/Core/Src/stm32f4xx_it.o"
+arm-none-eabi-gcc -o "Practica_3.1.2.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/franco/CESE/PDM/PdM_workspace/Practica_3.1.2/STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Practica_3.1.2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+/opt/st/stm32cubeide_1.15.1/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.linux64_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld: warning: Practica_3.1.2.elf has a LOAD segment with RWX permissions
+Finished building target: Practica_3.1.2.elf
+ 
+arm-none-eabi-size  Practica_3.1.2.elf 
+arm-none-eabi-objdump -h -S Practica_3.1.2.elf  > "Practica_3.1.2.list"
+   text	   data	    bss	    dec	    hex	filename
+   6684	     32	   1584	   8300	   206c	Practica_3.1.2.elf
+Finished building: default.size.stdout
+ 
+Finished building: Practica_3.1.2.list
+ 
+17:20:54 **** Incremental Build of configuration Debug for project Practica_3.1.2 ****
+make -j8 all 
+arm-none-eabi-size  Practica_3.1.2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6684	     32	   1584	   8300	   206c	Practica_3.1.2.elf
+Finished building: default.size.stdout
+ 

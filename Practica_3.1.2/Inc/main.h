@@ -50,6 +50,9 @@
 
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
+uint8_t MAXcycles(uint8_t j);
+uint8_t MINcycles(uint8_t j);
+
 #endif /* __MAIN_H */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

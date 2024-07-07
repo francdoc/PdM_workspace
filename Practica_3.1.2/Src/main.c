@@ -50,7 +50,25 @@ static void Error_Handler(void);
 
 /* Private functions ---------------------------------------------------------*/
 
-//
+/**
+ * @brief  Returns the max number of times a LED must blink
+ * @param  counter j
+ * @retval integer number that specifies how many times a LED must blink
+ */
+uint8_t MINcycles(uint8_t j) {
+	return j*2;
+}
+
+/**
+ * @brief  Returns the min number of times a LED must blink
+ * @param  counter j
+ * @retval integer number that specifies how many times a LED must blink
+ */
+uint8_t MAXcycles(uint8_t j)
+{
+	return j*2+1;
+}
+
 /**
  * @brief  Main program
  * @param  None
@@ -80,7 +98,7 @@ int main(void)
 
 	delayInit(&delay, TIEMPOS[INITindx]);
 
-	uint8_t halfperiod_counter = 0;
+	uint8_t HALFPERIODcounter = 0;
 	uint8_t j = 0;
 
 	BSP_LED_Toggle(LED1);
@@ -88,7 +106,7 @@ int main(void)
 	/* Infinite loop */
 	while (1)
 	{
-		if ((j*2)<=halfperiod_counter && halfperiod_counter<=(j*2+1))
+		if (MINcycles(j) <= HALFPERIODcounter && HALFPERIODcounter <= MAXcycles(j))
 		{
 			if (!delayIsRunning(&delay)){
 				delayWrite(&delay,TIEMPOS[j]);
@@ -96,16 +114,16 @@ int main(void)
 			if (delayRead(&delay))
 			{
 				BSP_LED_Toggle(LED1);
-				halfperiod_counter++;
-				if (halfperiod_counter % 2 == 0)
+				HALFPERIODcounter++;
+				if (HALFPERIODcounter%2 == 0)
 				{
 					j++;
 				}
 			}
 		}
-		if (halfperiod_counter == (T * 2))
+		if (HALFPERIODcounter == (T*2))
 		{
-			halfperiod_counter=0;
+			HALFPERIODcounter=0;
 			j = 0;
 		}
 	}
