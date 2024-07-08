@@ -62,7 +62,7 @@ https://github.com/francdoc/PdM_workspace/blob/main/Practica_1.2/Src/main.c#L108
 
 1) **¿Es suficientemente clara la consigna 2 o da lugar a implementaciones con distinto comportamiento?** 
 
-    No queda en claro cuántos ciclos de parpeadeo se quiere para cada LED. Para el ejercicio 3.2 lo dejé fijo en 1 ciclo para cada tiempo de parpeadeo de LED posible. Para el ejercicio 3.3 lo dejé configurable como una variable MACRO (#define).
+    No queda en claro cuántos ciclos de parpeadeo se quiere para cada LED. Para el ejercicio 3.1.2 lo dejé fijo en 1 ciclo para cada tiempo de parpeadeo de LED posible. Para el ejercicio 3.3 lo dejé configurable como una variable MACRO (#define).
 
 2) **¿Se puede cambiar el tiempo de encendido del led fácilmente en un solo lugar del código o éste está hardcodeado?**
 
@@ -70,7 +70,7 @@ https://github.com/francdoc/PdM_workspace/blob/main/Practica_1.2/Src/main.c#L108
 
 3)  **¿Hay números “mágicos” en el código?**
 
-    En el ejercicio 3.2 sí. En el ejercicio 3.3 traté de darles contexto y significado.
+    En el ejercicio 3.1.2 sí. En el ejercicio 3.3 traté de darles contexto y significado a todos los magic numbers.
 
 4) **¿Qué bibliotecas estándar se debieron agregar a API_delay.h para que el código compile?** 
 
@@ -88,4 +88,5 @@ https://github.com/francdoc/PdM_workspace/blob/main/Practica_1.2/Src/main.c#L108
     
 6) **¿Es adecuado el control de los parámetros pasados por el usuario que se hace en las funciones implementadas? ¿Se controla que sean valores válidos? ¿Se controla que estén dentro de los rangos esperados?**
 
-    Sí.
+    En la sección "Private define" y "Private variables" están todos los parámetros configurables para el usuario. Incluí control de parámetros en todas las funciones.
+

@@ -34,7 +34,6 @@
 
 #define INITindx 0 // Initial index for LED time pattern vector
 #define HALFPERIODcycles 2 // Number of halfperiod cycles for a LED blink cycle
-
 #define MAXiterations 1 // Total number of LED blink cycles for each duration value in TIEMPOS vector
 
 /* Private macro -------------------------------------------------------------*/
@@ -60,7 +59,11 @@ static void Error_Handler(void);
  */
 uint8_t MINcycles(uint8_t j)
 {
-	uint8_t a = (2*j)+(2*j)*(MAXiterations-1);
+	if (j<0)
+	{
+		Error_Handler();
+	}
+	uint8_t a = (2*j)*(MAXiterations);
 	return a;
 }
 
@@ -71,6 +74,10 @@ uint8_t MINcycles(uint8_t j)
  */
 uint8_t MAXcycles(uint8_t j)
 {
+	if (j<0)
+	{
+		Error_Handler();
+	}
 	uint8_t b = (2*MAXiterations*j)+(2*MAXiterations-1);
 	return b;
 }

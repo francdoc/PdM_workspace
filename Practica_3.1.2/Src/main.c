@@ -58,6 +58,10 @@ static void Error_Handler(void);
  */
 uint8_t MINcycles(uint8_t j)
 {
+	if (j<0)
+	{
+		Error_Handler();
+	}
 	return j*2;
 }
 
@@ -68,6 +72,10 @@ uint8_t MINcycles(uint8_t j)
  */
 uint8_t MAXcycles(uint8_t j)
 {
+	if (j<0)
+	{
+		Error_Handler();
+	}
 	return j*2+1;
 }
 

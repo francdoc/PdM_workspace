@@ -53,7 +53,10 @@ bool_t delayRead(delay_t *delay)
  */
 bool_t delayIsRunning(delay_t * delay)
 {
-	return delay->running;
+	if (delay != NULL)
+	{
+		return delay->running;
+	}
 }
 
 /**
