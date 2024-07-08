@@ -57,6 +57,7 @@ bool_t delayIsRunning(delay_t *delay)
 	{
 		return delay->running;
 	}
+	return false;
 }
 
 /**
