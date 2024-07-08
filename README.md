@@ -62,7 +62,7 @@ https://github.com/francdoc/PdM_workspace/blob/main/Practica_1.2/Src/main.c#L108
 
 1) **¿Es suficientemente clara la consigna 2 o da lugar a implementaciones con distinto comportamiento?** 
 
-    No queda en claro cuántos ciclos de parpeadeo se quiere para cada LED. Para el ejercicio 3.1.2 lo dejé fijo en 1 ciclo para cada tiempo de parpeadeo de LED posible. Para el ejercicio 3.3 lo dejé configurable como una variable MACRO (#define).
+    No queda en claro cuántos ciclos de parpeadeo se quiere para cada LED. Para el ejercicio 3.1.2 (que sintetiza el punto 3.1 y 3.2) lo dejé fijo en 1 ciclo para cada tiempo de parpeadeo de LED posible. Sin posibilidad de ser modificado. Para el ejercicio 3.3 lo dejé configurable como una variable MACRO (#define).
 
 2) **¿Se puede cambiar el tiempo de encendido del led fácilmente en un solo lugar del código o éste está hardcodeado?**
 
