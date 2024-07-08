@@ -47,16 +47,6 @@ bool_t delayRead(delay_t *delay)
 }
 
 /**
- * @brief  This function checks if delay is still running
- * @param  delay is a pointer to the delay structure
- * @retval Returns a copy of the field value running from delay_t structure
- */
-bool_t delayIsRunning(delay_t * delay)
-{
-	return delay->running;
-}
-
-/**
  * @brief  Configures a new delay
  * @param  delay is a pointer to the delay structure
  * @param  duration: duration of delay in milliseconds

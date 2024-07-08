@@ -33,12 +33,13 @@
 /* Private define ------------------------------------------------------------*/
 
 #define INITindx 0 // Initial index for LED time pattern vector
+#define HALPERIODcycles 2 // number of halfperiod cycles for a LED
 
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
 
 delay_t delay;
-const uint32_t TIEMPOS[] = {500, 100, 100, 1000};
+const uint32_t TIEMPOS[] = {500, 100, 100, 1000}; // Blink delays in milliseconds.
 const uint8_t T = sizeof(TIEMPOS) / sizeof(uint32_t); // Total number of elements in vector.
 
 /* UART handler declaration */
@@ -53,20 +54,25 @@ static void Error_Handler(void);
 /**
  * @brief  Returns the max number of times a LED must blink
  * @param  counter j
- * @retval integer number that specifies how many times a LED must blink
+ * @retval number that specifies how many times a LED must blink
  */
-uint8_t MINcycles(uint8_t j) {
-	return j*2;
+uint8_t MINcycles(uint8_t j)
+{
+	static uint8_t n = 0;
+	n = n + 2;
+	return n;
 }
 
 /**
  * @brief  Returns the min number of times a LED must blink
  * @param  counter j
- * @retval integer number that specifies how many times a LED must blink
+ * @retval number that specifies how many times a LED must blink
  */
 uint8_t MAXcycles(uint8_t j)
 {
-	return j*2+1;
+	static uint8_t n = 1;
+	n = n + 2;
+	return n;
 }
 
 /**
@@ -108,20 +114,18 @@ int main(void)
 	{
 		if (MINcycles(j) <= HALFPERIODcounter && HALFPERIODcounter <= MAXcycles(j))
 		{
-			if (!delayIsRunning(&delay)){
-				delayWrite(&delay,TIEMPOS[j]);
-			}
+			delayWrite(&delay,TIEMPOS[j]);
 			if (delayRead(&delay))
 			{
 				BSP_LED_Toggle(LED1);
 				HALFPERIODcounter++;
-				if (HALFPERIODcounter%2 == 0)
+				if (HALFPERIODcounter % (2) == 0)
 				{
 					j++;
 				}
 			}
 		}
-		if (HALFPERIODcounter == (T*2))
+		if (HALFPERIODcounter == (T*HALPERIODcycles))
 		{
 			HALFPERIODcounter=0;
 			j = 0;
