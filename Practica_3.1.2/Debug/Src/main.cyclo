@@ -1,5 +1,0 @@
-../Src/main.c:59:9:MINcycles	1
-../Src/main.c:71:9:MAXcycles	1
-../Src/main.c:83:5:main	6
-../Src/main.c:157:13:SystemClock_Config	4
-../Src/main.c:209:13:Error_Handler	1
