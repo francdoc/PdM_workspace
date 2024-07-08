@@ -33,8 +33,9 @@
 /* Private define ------------------------------------------------------------*/
 
 #define INITindx 0 // Initial index for LED time pattern vector
-#define HALPERIODcycles 2 // Number of halfperiod cycles for a LED blink cycle
-#define MAXiterations 3 // Total number of LED blink cycles for each duration value in TIEMPOS vector
+#define HALFPERIODcycles 2 // Number of halfperiod cycles for a LED blink cycle
+
+#define MAXiterations 1 // Total number of LED blink cycles for each duration value in TIEMPOS vector
 
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
@@ -121,13 +122,13 @@ int main(void)
 			{
 				BSP_LED_Toggle(LED1);
 				HALFPERIODcounter++;
-				if (HALFPERIODcounter % (2*MAXiterations) == 0)
+				if (HALFPERIODcounter % (HALFPERIODcycles*MAXiterations) == 0) // check if HALFPERIODcounter is multiple of total HALFPERIODcycles to increment j and advance to the next blink duration in the vector
 				{
 					j++;
 				}
 			}
 		}
-		if (HALFPERIODcounter == (T*MAXiterations*HALPERIODcycles))
+		if (HALFPERIODcounter == (T*MAXiterations*HALFPERIODcycles))
 		{
 			HALFPERIODcounter=0;
 			j = 0;
