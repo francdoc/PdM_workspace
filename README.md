@@ -5,7 +5,7 @@ Materia: Programación de Microprocesadores
 Docente: Patricio Bos (@patriciobos)
 ```
 
-#### Preguntas asociadas al desarrollo de la Práctica 1:
+#### PREGUNTAS PRÁCTICA 1
 
 1) **¿De qué serviría usar un array de “leds” con la secuencia en el programa? ¿Qué pasa con nuestro programa si nos piden agregar/sacar/cambiar un led de la secuencia** 
 
@@ -58,7 +58,7 @@ https://github.com/francdoc/PdM_workspace/blob/main/Practica_1.2/Src/main.c#L86
 https://github.com/francdoc/PdM_workspace/blob/main/Practica_1.2/Src/main.c#L108    
 ```
 
-#### Preguntas asociadas al desarrollo de la Práctica 3:
+#### PREGUNTAS PRÁCTICA 3
 
 1) **¿Es suficientemente clara la consigna 2 o da lugar a implementaciones con distinto comportamiento?** 
 
