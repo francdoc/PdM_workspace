@@ -58,9 +58,7 @@ static void Error_Handler(void);
  */
 uint8_t MINcycles(uint8_t j)
 {
-	static uint8_t n = 0;
-	n = n + 2;
-	return n;
+	return j*2;
 }
 
 /**
@@ -70,9 +68,7 @@ uint8_t MINcycles(uint8_t j)
  */
 uint8_t MAXcycles(uint8_t j)
 {
-	static uint8_t n = 1;
-	n = n + 2;
-	return n;
+	return j*2+1;
 }
 
 /**

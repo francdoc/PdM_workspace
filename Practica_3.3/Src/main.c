@@ -33,7 +33,8 @@
 /* Private define ------------------------------------------------------------*/
 
 #define INITindx 0 // Initial index for LED time pattern vector
-#define HALPERIODcycles 2 // number of halfperiod cycles for a LED
+#define HALPERIODcycles 2 // Number of halfperiod cycles for a LED blink cycle
+#define MAXiterations 3 // Total number of LED blink cycles for each duration value in TIEMPOS vector
 
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
@@ -58,9 +59,8 @@ static void Error_Handler(void);
  */
 uint8_t MINcycles(uint8_t j)
 {
-	static uint8_t n = 0;
-	n = n + 2;
-	return n;
+	uint8_t a = (2*j)+(2*j)*(MAXiterations-1);
+	return a;
 }
 
 /**
@@ -70,9 +70,8 @@ uint8_t MINcycles(uint8_t j)
  */
 uint8_t MAXcycles(uint8_t j)
 {
-	static uint8_t n = 1;
-	n = n + 2;
-	return n;
+	uint8_t b = (2*MAXiterations*j)+(2*MAXiterations-1);
+	return b;
 }
 
 /**
@@ -122,13 +121,13 @@ int main(void)
 			{
 				BSP_LED_Toggle(LED1);
 				HALFPERIODcounter++;
-				if (HALFPERIODcounter % (2) == 0)
+				if (HALFPERIODcounter % (2*MAXiterations) == 0)
 				{
 					j++;
 				}
 			}
 		}
-		if (HALFPERIODcounter == (T*HALPERIODcycles))
+		if (HALFPERIODcounter == (T*MAXiterations*HALPERIODcycles))
 		{
 			HALFPERIODcounter=0;
 			j = 0;

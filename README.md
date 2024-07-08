@@ -57,3 +57,35 @@ https://github.com/francdoc/PdM_workspace/blob/main/Practica_1.2/Src/main.c#L86
 
 https://github.com/francdoc/PdM_workspace/blob/main/Practica_1.2/Src/main.c#L108    
 ```
+
+#### Preguntas asociadas al desarrollo de la Práctica 3:
+
+1) **¿Es suficientemente clara la consigna 2 o da lugar a implementaciones con distinto comportamiento?** 
+
+    No queda en claro cuántos ciclos de parpeadeo se quiere para cada LED. Para el ejercicio 3.2 lo dejé fijo en 1 ciclo para cada tiempo de parpeadeo de LED posible. Para el ejercicio 3.3 lo dejé configurable como un vector de repeticiones.
+    
+2) **¿Se puede cambiar el tiempo de encendido del led fácilmente en un solo lugar del código o éste está hardcodeado?**
+
+    Está configurable como un vector de tiempos.
+
+3)  **¿Hay números “mágicos” en el código?**
+
+    En el ejercicio 3.2 sí.
+
+4) **¿Qué bibliotecas estándar se debieron agregar a API_delay.h para que el código compile?** 
+
+    ```
+    #include <stdio.h>
+    #include <stdint.h>
+    #include <stdbool.h>
+
+    #include "stm32f4xx_hal.h"
+    ```
+
+5) **Si las funcionalidades de una API propia crecieran, habría que pensar cuál sería el mejor lugar para incluir esas bibliotecas y algunos typedefs que se usen en la implementación, ¿Cuál sería el mejor lugar?.**
+
+    Supongo que seguir trabajando dentro de la carpeta Drivers estaría bien.
+    
+6) **¿Es adecuado el control de los parámetros pasados por el usuario que se hace en las funciones implementadas? ¿Se controla que sean valores válidos? ¿Se controla que estén dentro de los rangos esperados?**
+
+    Sí.
