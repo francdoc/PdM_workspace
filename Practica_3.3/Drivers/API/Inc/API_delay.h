@@ -20,6 +20,6 @@ typedef struct
 void delayInit(delay_t *delay, tick_t duration);
 bool_t delayRead(delay_t *delay);
 void delayWrite(delay_t *delay, tick_t duration);
-bool_t delayIsRunning(delay_t * delay);
+bool_t delayIsRunning(delay_t *delay);
 
 #endif /* API_INC_API_DELAY_H_*/

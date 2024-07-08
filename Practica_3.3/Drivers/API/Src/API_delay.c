@@ -51,7 +51,7 @@ bool_t delayRead(delay_t *delay)
  * @param  delay is a pointer to the delay structure
  * @retval Returns a copy of the field value running from delay_t structure
  */
-bool_t delayIsRunning(delay_t * delay)
+bool_t delayIsRunning(delay_t *delay)
 {
 	if (delay != NULL)
 	{
