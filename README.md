@@ -5,7 +5,7 @@ Materia: Programación de Microprocesadores
 Docente: Patricio Bos (@patriciobos)
 ```
 
-#### PREGUNTAS PRÁCTICA 1
+### PREGUNTAS PRÁCTICA 1
 
 1) **¿De qué serviría usar un array de “leds” con la secuencia en el programa? ¿Qué pasa con nuestro programa si nos piden agregar/sacar/cambiar un led de la secuencia** 
 
@@ -58,7 +58,7 @@ https://github.com/francdoc/PdM_workspace/blob/main/Practica_1.2/Src/main.c#L86
 https://github.com/francdoc/PdM_workspace/blob/main/Practica_1.2/Src/main.c#L108    
 ```
 
-#### PREGUNTAS PRÁCTICA 3
+### PREGUNTAS PRÁCTICA 3
 
 1) **¿Es suficientemente clara la consigna 2 o da lugar a implementaciones con distinto comportamiento?** 
 
@@ -88,5 +88,4 @@ https://github.com/francdoc/PdM_workspace/blob/main/Practica_1.2/Src/main.c#L108
     
 6) **¿Es adecuado el control de los parámetros pasados por el usuario que se hace en las funciones implementadas? ¿Se controla que sean valores válidos? ¿Se controla que estén dentro de los rangos esperados?**
 
-    En la sección "Private define" y "Private variables" están todos los parámetros configurables para el usuario. Incluí control de parámetros en todas las funciones.
-
+    En la sección "Private define" y "Private variables" están todos los parámetros configurables para el usuario. Incluí control de parámetros en todas las funciones desarrolladas.
