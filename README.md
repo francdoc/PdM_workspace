@@ -62,15 +62,15 @@ https://github.com/francdoc/PdM_workspace/blob/main/Practica_1.2/Src/main.c#L108
 
 1) **¿Es suficientemente clara la consigna 2 o da lugar a implementaciones con distinto comportamiento?** 
 
-    No queda en claro cuántos ciclos de parpeadeo se quiere para cada LED. Para el ejercicio 3.2 lo dejé fijo en 1 ciclo para cada tiempo de parpeadeo de LED posible. Para el ejercicio 3.3 lo dejé configurable como un vector de repeticiones.
-    
+    No queda en claro cuántos ciclos de parpeadeo se quiere para cada LED. Para el ejercicio 3.2 lo dejé fijo en 1 ciclo para cada tiempo de parpeadeo de LED posible. Para el ejercicio 3.3 lo dejé configurable como una variable MACRO (#define).
+
 2) **¿Se puede cambiar el tiempo de encendido del led fácilmente en un solo lugar del código o éste está hardcodeado?**
 
     Está configurable como un vector de tiempos.
 
 3)  **¿Hay números “mágicos” en el código?**
 
-    En el ejercicio 3.2 sí.
+    En el ejercicio 3.2 sí. En el ejercicio 3.3 traté de darles contexto y significado.
 
 4) **¿Qué bibliotecas estándar se debieron agregar a API_delay.h para que el código compile?** 
 
