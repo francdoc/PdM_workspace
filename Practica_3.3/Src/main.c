@@ -57,7 +57,7 @@ static void Error_Handler(void);
  * @param  counter j
  * @retval number that specifies how many times a LED must blink
  */
-uint8_t MINcycles(uint8_t j)
+uint8_t cyclesMIN(uint8_t j)
 {
 	if (j < 0)
 	{
@@ -72,7 +72,7 @@ uint8_t MINcycles(uint8_t j)
  * @param  counter j
  * @retval number that specifies how many times a LED must blink
  */
-uint8_t MAXcycles(uint8_t j)
+uint8_t cyclesMAX(uint8_t j)
 {
 	if (j < 0)
 	{
@@ -119,7 +119,7 @@ int main(void)
 	/* Infinite loop */
 	while (1)
 	{
-		if (MINcycles(j) <= HALFPERIODcounter && HALFPERIODcounter <= MAXcycles(j))
+		if (cyclesMIN(j) <= HALFPERIODcounter && HALFPERIODcounter <= cyclesMAX(j))
 		{
 			if (!delayIsRunning(&delay))
 			{

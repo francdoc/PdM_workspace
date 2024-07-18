@@ -64,3 +64,6 @@ Practica_3.1.2/Debug/
 Practica_3.3/Debug/
 .metadata/.plugins/
 */.settings/
+.metadata/.log
+.gitignore
+Practica_4.1/Debug/
