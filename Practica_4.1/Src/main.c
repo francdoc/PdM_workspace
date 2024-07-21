@@ -55,7 +55,7 @@ void buttonReleased();
 void debounceFSM_init();
 void debounceFSM_update();
 
-uint32_t getBtnState(void);
+uint32_t getBtnState();
 
 /* Private functions ---------------------------------------------------------*/
 

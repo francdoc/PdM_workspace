@@ -89,3 +89,17 @@ https://github.com/francdoc/PdM_workspace/blob/main/Practica_1.2/Src/main.c#L108
 6) **¿Es adecuado el control de los parámetros pasados por el usuario que se hace en las funciones implementadas? ¿Se controla que sean valores válidos? ¿Se controla que estén dentro de los rangos esperados?**
 
     En la sección "Private define" y "Private variables" están todos los parámetros configurables para el usuario. Incluí control de parámetros en todas las funciones desarrolladas.
+
+### PREGUNTAS PRÁCTICA 4
+
+1) **¿Es adecuado el control de los parámetros pasados por el usuario que se hace en las funciones implementadas? ¿Se controla que sean valores válidos? ¿Se controla que estén dentro de los rangos correctos?** 
+
+    Se realizan control de parámetros y valores.
+
+2) **¿Se nota una mejora en la detección de las pulsaciones respecto a la práctica 0? ¿Se pierden pulsaciones? ¿Hay falsos positivos?**
+
+    Mejoró la detección de pulsaciones de botón. No hay falsos positivos.
+
+3)  **¿Es adecuada la temporización con la que se llama a debounceFSM_update()? ¿Y a readKey()? ¿Qué pasaría si se llamara con un tiempo mucho más grande? ¿Y mucho más corto?**
+
+    Actualmente es adecuada. Mientras más grande sea el tiempo menor la capacidad de reacción del programa frente a las pulsaciones del botón. Se perderían pulsaciones.
