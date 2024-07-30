@@ -7,6 +7,7 @@
 		<item key="WizardProjectsImportPage.STORE_CLOSE_CREATED_PROJECTS_ID" value="true"/>
 		<item key="WizardProjectsImportPage.STORE_HIDE_CONFLICTING_PROJECTS_ID" value="true"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="/home/franco/Desktop/Reloj con RTC_interno"/>
 			<item value="/home/franco/CESE/PDM/PdM_workspace"/>
 		</list>
 		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
@@ -31,5 +32,9 @@
 			<item value="/home/franco/CESE/PDM/Revision_Pares/Arachan6/PdM_workspace"/>
 			<item value="/home/franco/CESE/PDM/PdM_workspace"/>
 		</list>
+	</section>
+	<section name="NewWizardAction">
+	</section>
+	<section name="BasicNewProjectResourceWizard">
 	</section>
 </section>
