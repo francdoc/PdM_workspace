@@ -103,3 +103,8 @@ https://github.com/francdoc/PdM_workspace/blob/main/Practica_1.2/Src/main.c#L108
 3)  **¿Es adecuada la temporización con la que se llama a debounceFSM_update()? ¿Y a readKey()? ¿Qué pasaría si se llamara con un tiempo mucho más grande? ¿Y mucho más corto?**
 
     Actualmente es adecuada. Mientras más grande sea el tiempo menor la capacidad de reacción del programa frente a las pulsaciones del botón. Se perderían pulsaciones.
+
+### PRÁCTICA 5
+
+1) **Ejericio 1**: PdM_workspace/Practica_5.1
+2) **Ejercicio 2**: PdM_workspace/Practica_5.2
