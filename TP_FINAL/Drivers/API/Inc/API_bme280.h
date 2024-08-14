@@ -112,9 +112,6 @@ register only become effective after a write operation to “ctrl_meas”.*/
 
 /* Exported variables -------------------------------------------------------*/
 
-// Here we declare temperature and humidity as extern to make them accessible in other source files (API_fsm.c).
-extern float bme280_temperature, bme280_humidity;
-
 /* Exported functions ------------------------------------------------------- */
 
 /**
@@ -129,7 +126,11 @@ void API_BME280_Init(void);
  * @param  None
  * @retval uint8_t: Returns 0 if the read operation is successful, 1 if an error occurs.
  */
-extern uint8_t API_BME280_ReadAndProcess(void);
+uint8_t API_BME280_ReadAndProcess(void);
+
+float API_BME280_GetTemperature(void);
+
+float API_BME280_GetHumidity(void);
 
 /**
  * @brief  Error handler for BME280 operations, enters an infinite loop in case of an error.

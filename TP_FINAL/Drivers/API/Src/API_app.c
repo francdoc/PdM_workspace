@@ -10,6 +10,9 @@ char lcdTempStr[SIZE];
 char lcdHumStr[SIZE];
 char messageFsm[50];
 
+static float temperature = 0.0f;
+static float humidity = 0.0f;
+
 /* Function Prototypes -------------------------------------------------------------*/
 static void APP_FSM_init(void);
 static void APP_FSM_update(void);
@@ -73,8 +76,8 @@ static void APP_uartPrepareData(float bme280_data, char *message, const char *ta
  */
 static void APP_uartPrepareSensorTempHum(char *message_tem, char *message_hum)
 {
-    APP_uartPrepareData((float)bme280_temperature, message_tem, "Temperature: ", "C");
-    APP_uartPrepareData((float)bme280_humidity, message_hum, "Humidity: ", "%");
+    APP_uartPrepareData((float)temperature, message_tem, "Temperature: ", "C");
+    APP_uartPrepareData((float)humidity, message_hum, "Humidity: ", "%");
 }
 
 /**
@@ -95,13 +98,13 @@ static void APP_uartDisplaySensorData(char *message_1, char *message_2)
  */
 static void APP_lcdPrepareSensorData(void)
 {
-    itoa((int)bme280_temperature, lcdTempStr, DECIMAL);
+    itoa((int)temperature, lcdTempStr, DECIMAL);
     strcat(lcdTempStr, ".");
-    itoa((int)((bme280_temperature - (int)bme280_temperature) * FRACTIONAL_MULTIPLIER), lcdTempStr + strlen(lcdTempStr), DECIMAL);
+    itoa((int)((temperature - (int)temperature) * FRACTIONAL_MULTIPLIER), lcdTempStr + strlen(lcdTempStr), DECIMAL);
 
-    itoa((int)bme280_humidity, lcdHumStr, DECIMAL);
+    itoa((int)humidity, lcdHumStr, DECIMAL);
     strcat(lcdHumStr, ".");
-    itoa((int)((bme280_humidity - (int)bme280_humidity) * FRACTIONAL_MULTIPLIER), lcdHumStr + strlen(lcdHumStr), DECIMAL);
+    itoa((int)((humidity - (int)humidity) * FRACTIONAL_MULTIPLIER), lcdHumStr + strlen(lcdHumStr), DECIMAL);
 }
 
 /**
@@ -162,7 +165,7 @@ static void APP_FSM_update(void)
     switch (currentTempState)
     {
     case TEMP_NORMAL:
-        if (bme280_temperature > THRESHOLD_TEMP) // Transition to ALARM state
+        if (temperature > THRESHOLD_TEMP) // Transition to ALARM state
         {
             currentTempState = TEMP_ALARM;
 
@@ -179,7 +182,7 @@ static void APP_FSM_update(void)
         break;
 
     case TEMP_ALARM:
-        if (bme280_temperature <= THRESHOLD_TEMP) // Transition to NORMAL state
+        if (temperature < THRESHOLD_TEMP) // Transition to NORMAL state
         {
             currentTempState = TEMP_NORMAL;
 
@@ -218,6 +221,8 @@ static void APP_lcdUpdateTime(void)
 static void APP_updateSensorData(void)
 {
     API_BME280_ReadAndProcess();
+    temperature = API_BME280_GetTemperature();
+    humidity = API_BME280_GetHumidity();
 }
 
 /**

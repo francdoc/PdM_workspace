@@ -1,12 +1,9 @@
 #include "API_bme280.h"
 
-/* Global public variables ----------------------------------------------------------*/
-
-// Declare global variables for temperature and humidity, we will use them later in the finite-state machine app code.
-float bme280_temperature;
-float bme280_humidity;
-
 /* Private variables ----------------------------------------------------------*/
+
+static float bme280_temperature = 0.0f;
+static float bme280_humidity = 0.0f;
 
 // Calibration variables
 static uint16_t dig_T1;
@@ -202,7 +199,7 @@ static BME280_U32_t BME280_compensate_H_int32(BME280_S32_t adc_H)
  * @param  None
  * @retval None
  */
-void API_BME280_Init(void)
+void API_BME280_Init()
 {
   calibrationParams();
 
@@ -252,7 +249,7 @@ void API_BME280_Init(void)
  * @param  None
  * @retval uint8_t: Returns 0 if the read operation is successful, 1 if an error occurs.
  */
-uint8_t API_BME280_ReadAndProcess(void)
+uint8_t API_BME280_ReadAndProcess()
 {
   uint8_t sensorDataBuffer[8];
   uint8_t chip_Id;
@@ -307,6 +304,28 @@ uint8_t API_BME280_ReadAndProcess(void)
     errorLedSignal();
     return 1;
   }
+}
+
+/**
+ * @brief  Gets the last compensated temperature value from the BME280 sensor.
+ * @note   This function returns the temperature in degrees Celsius, which was calculated
+ *         using the BME280 compensation formulas during the last sensor read.
+ * @param  None
+ * @retval float: The latest temperature value in degrees Celsius.
+ */
+float API_BME280_GetTemperature(void) {
+    return bme280_temperature;
+}
+
+/**
+ * @brief  Gets the last compensated humidity value from the BME280 sensor.
+ * @note   This function returns the relative humidity percentage, which was calculated
+ *         using the BME280 compensation formulas during the last sensor read.
+ * @param  None
+ * @retval float: The latest humidity value in percentage (%RH).
+ */
+float API_BME280_GetHumidity(void) {
+    return bme280_humidity;
 }
 
 /**
