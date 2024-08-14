@@ -7,6 +7,9 @@
 		<item key="WizardProjectsImportPage.STORE_CLOSE_CREATED_PROJECTS_ID" value="true"/>
 		<item key="WizardProjectsImportPage.STORE_HIDE_CONFLICTING_PROJECTS_ID" value="true"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="/home/franco/CESE/PDM/Reloj con RTC_interno"/>
+			<item value="/home/franco/CESE/PDM/PCSE-tp_DT"/>
+			<item value="/home/franco/PdM_workspace/Practica_TP.Final"/>
 			<item value="/home/franco/Desktop/Reloj con RTC_interno"/>
 			<item value="/home/franco/CESE/PDM/PdM_workspace"/>
 		</list>
