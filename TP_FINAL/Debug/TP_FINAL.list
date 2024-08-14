@@ -29,9 +29,9 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  12 .ARM.attributes 00000030  00000000  00000000  0000701c  2**0
                   CONTENTS, READONLY
- 13 .debug_info   00012623  00000000  00000000  0000704c  2**0
+ 13 .debug_info   00012621  00000000  00000000  0000704c  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_abbrev 00002d5c  00000000  00000000  0001966f  2**0
+ 14 .debug_abbrev 00002d5d  00000000  00000000  0001966d  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  15 .debug_aranges 00000fe0  00000000  00000000  0001c3d0  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
@@ -1839,7 +1839,7 @@ Infinite_Loop:
  * @brief Initializes the finite state machine (FSM) to the default temperature state.
  * @retval None
  */
-void APP_FSM_init(void)
+static void APP_FSM_init(void)
 {
  8000c98:	b480      	push	{r7}
  8000c9a:	af00      	add	r7, sp, #0
@@ -1859,7 +1859,7 @@ void APP_FSM_init(void)
  * @param unit: The unit to append to the data (e.g., "C" or "%").
  * @retval None
  */
-void APP_uartPrepareData(float bme280_data, char *message, const char *tag, const char *unit)
+static void APP_uartPrepareData(float bme280_data, char *message, const char *tag, const char *unit)
 {
  8000cb0:	b580      	push	{r7, lr}
  8000cb2:	b086      	sub	sp, #24
@@ -1974,7 +1974,7 @@ void APP_uartPrepareData(float bme280_data, char *message, const char *tag, cons
  * @param message_hum: Buffer to store the formatted humidity data.
  * @retval None
  */
-void APP_uartPrepareSensorTempHum(char *message_tem, char *message_hum)
+static void APP_uartPrepareSensorTempHum(char *message_tem, char *message_hum)
 {
  8000da0:	b580      	push	{r7, lr}
  8000da2:	b082      	sub	sp, #8
@@ -2015,7 +2015,7 @@ void APP_uartPrepareSensorTempHum(char *message_tem, char *message_hum)
  * @param message_2: The formatted humidity message to send.
  * @retval None
  */
-void APP_uartDisplaySensorData(char *message_1, char *message_2)
+static void APP_uartDisplaySensorData(char *message_1, char *message_2)
 {
  8000df4:	b580      	push	{r7, lr}
  8000df6:	b082      	sub	sp, #8
@@ -2040,7 +2040,7 @@ void APP_uartDisplaySensorData(char *message_1, char *message_2)
  * @brief Prepares the temperature and humidity data for LCD display.
  * @retval None
  */
-void APP_lcdPrepareSensorData(void)
+static void APP_lcdPrepareSensorData(void)
 {
  8000e14:	b580      	push	{r7, lr}
  8000e16:	ed2d 8b02 	vpush	{d8}
@@ -2144,7 +2144,7 @@ void APP_lcdPrepareSensorData(void)
  * @brief Displays the prepared temperature and humidity data on the LCD.
  * @retval None
  */
-void APP_lcdDisplaySensorData(void)
+static void APP_lcdDisplaySensorData(void)
 {
  8000f14:	b580      	push	{r7, lr}
  8000f16:	af00      	add	r7, sp, #0
@@ -2173,7 +2173,7 @@ void APP_lcdDisplaySensorData(void)
  * @brief Displays an alarm message on the LCD in the event of a temperature alarm.
  * @retval None
  */
-void APP_lcdAlarm(void)
+static void APP_lcdAlarm(void)
 {
  8000f44:	b580      	push	{r7, lr}
  8000f46:	af00      	add	r7, sp, #0
@@ -2193,7 +2193,7 @@ void APP_lcdAlarm(void)
  * @brief Displays the current time on the LCD.
  * @retval None
  */
-void APP_lcdDisplayClock(void)
+static void APP_lcdDisplayClock(void)
 {
  8000f5c:	b580      	push	{r7, lr}
  8000f5e:	af00      	add	r7, sp, #0
@@ -2233,7 +2233,7 @@ void APP_lcdDisplayClock(void)
  * @brief Displays the current date on the LCD.
  * @retval None
  */
-void APP_lcdDisplayDate(void)
+static void APP_lcdDisplayDate(void)
 {
  8000f9c:	b580      	push	{r7, lr}
  8000f9e:	af00      	add	r7, sp, #0
@@ -2273,7 +2273,7 @@ void APP_lcdDisplayDate(void)
  * @brief Updates the FSM state and triggers the appropriate actions and displays based on the current state.
  * @retval None
  */
-void APP_FSM_update(void)
+static void APP_FSM_update(void)
 {
  8000fdc:	b5b0      	push	{r4, r5, r7, lr}
  8000fde:	af00      	add	r7, sp, #0
@@ -2425,7 +2425,7 @@ void APP_FSM_update(void)
  * @brief Updates the current time and displays it on the LCD.
  * @retval None
  */
-void APP_lcdUpdateTime(void)
+static void APP_lcdUpdateTime(void)
 {
  80010d8:	b580      	push	{r7, lr}
  80010da:	af00      	add	r7, sp, #0
@@ -2442,7 +2442,7 @@ void APP_lcdUpdateTime(void)
  * @brief Updates the sensor data by reading from the BME280 sensor.
  * @retval None
  */
-void APP_updateSensorData(void)
+static void APP_updateSensorData(void)
 {
  80010e8:	b580      	push	{r7, lr}
  80010ea:	af00      	add	r7, sp, #0
@@ -2457,7 +2457,7 @@ void APP_updateSensorData(void)
  * @brief Prepares and displays the sensor data on the LCD.
  * @retval None
  */
-void APP_prepareAndDisplaySensorData(void)
+static void APP_prepareAndDisplaySensorData(void)
 {
  80010f4:	b580      	push	{r7, lr}
  80010f6:	af00      	add	r7, sp, #0
@@ -2474,7 +2474,7 @@ void APP_prepareAndDisplaySensorData(void)
  * @brief Prepares and sends the sensor data over UART.
  * @retval None
  */
-void APP_prepareAndSendUARTData(void)
+static void APP_prepareAndSendUARTData(void)
 {
  8001104:	b580      	push	{r7, lr}
  8001106:	af00      	add	r7, sp, #0
