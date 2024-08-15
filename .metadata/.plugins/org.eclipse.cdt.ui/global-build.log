@@ -110,3 +110,62 @@ arm-none-eabi-size  TP_FINAL.elf
   22496	     28	   2244	  24768	   60c0	TP_FINAL.elf
 Finished building: default.size.stdout
  
+18:44:17 **** Incremental Build of configuration Debug for project TP_FINAL ****
+make -j8 all 
+arm-none-eabi-gcc "../Drivers/API/Src/API_app.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"/home/franco/CESE/PDM/PdM_workspace/TP_FINAL/Drivers/API" -I"/home/franco/CESE/PDM/PdM_workspace/TP_FINAL/Drivers/API/Inc" -I"/home/franco/CESE/PDM/PdM_workspace/TP_FINAL/Drivers/API/Src" -I"/home/franco/CESE/PDM/PdM_workspace/TP_FINAL/Drivers/BSP" -I"/home/franco/CESE/PDM/PdM_workspace/TP_FINAL/Drivers/BSP/STM32F4xx_Nucleo_144" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/API_app.d" -MT"Drivers/API/Src/API_app.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_app.o"
+arm-none-eabi-gcc -o "TP_FINAL.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/franco/CESE/PDM/PdM_workspace/TP_FINAL/STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="TP_FINAL.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: TP_FINAL.elf
+ 
+arm-none-eabi-size  TP_FINAL.elf 
+arm-none-eabi-objdump -h -S TP_FINAL.elf  > "TP_FINAL.list"
+   text	   data	    bss	    dec	    hex	filename
+  22496	     28	   2244	  24768	   60c0	TP_FINAL.elf
+Finished building: default.size.stdout
+ 
+Finished building: TP_FINAL.list
+ 
+18:44:27 **** Incremental Build of configuration Debug for project TP_FINAL ****
+make -j8 all 
+arm-none-eabi-size  TP_FINAL.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22496	     28	   2244	  24768	   60c0	TP_FINAL.elf
+Finished building: default.size.stdout
+ 
+18:44:49 **** Incremental Build of configuration Debug for project TP_FINAL ****
+make -j8 all 
+arm-none-eabi-size  TP_FINAL.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22496	     28	   2244	  24768	   60c0	TP_FINAL.elf
+Finished building: default.size.stdout
+ 
+18:45:05 **** Incremental Build of configuration Debug for project TP_FINAL ****
+make -j8 all 
+arm-none-eabi-size  TP_FINAL.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22496	     28	   2244	  24768	   60c0	TP_FINAL.elf
+Finished building: default.size.stdout
+ 
+18:45:33 **** Incremental Build of configuration Debug for project TP_FINAL ****
+make -j8 all 
+arm-none-eabi-gcc "../Drivers/API/Src/API_app.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"/home/franco/CESE/PDM/PdM_workspace/TP_FINAL/Drivers/API" -I"/home/franco/CESE/PDM/PdM_workspace/TP_FINAL/Drivers/API/Inc" -I"/home/franco/CESE/PDM/PdM_workspace/TP_FINAL/Drivers/API/Src" -I"/home/franco/CESE/PDM/PdM_workspace/TP_FINAL/Drivers/BSP" -I"/home/franco/CESE/PDM/PdM_workspace/TP_FINAL/Drivers/BSP/STM32F4xx_Nucleo_144" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/API/Src/API_app.d" -MT"Drivers/API/Src/API_app.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_app.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"/home/franco/CESE/PDM/PdM_workspace/TP_FINAL/Drivers/API" -I"/home/franco/CESE/PDM/PdM_workspace/TP_FINAL/Drivers/API/Inc" -I"/home/franco/CESE/PDM/PdM_workspace/TP_FINAL/Drivers/API/Src" -I"/home/franco/CESE/PDM/PdM_workspace/TP_FINAL/Drivers/BSP" -I"/home/franco/CESE/PDM/PdM_workspace/TP_FINAL/Drivers/BSP/STM32F4xx_Nucleo_144" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"/home/franco/CESE/PDM/PdM_workspace/TP_FINAL/Drivers/API" -I"/home/franco/CESE/PDM/PdM_workspace/TP_FINAL/Drivers/API/Inc" -I"/home/franco/CESE/PDM/PdM_workspace/TP_FINAL/Drivers/API/Src" -I"/home/franco/CESE/PDM/PdM_workspace/TP_FINAL/Drivers/BSP" -I"/home/franco/CESE/PDM/PdM_workspace/TP_FINAL/Drivers/BSP/STM32F4xx_Nucleo_144" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"/home/franco/CESE/PDM/PdM_workspace/TP_FINAL/Drivers/API" -I"/home/franco/CESE/PDM/PdM_workspace/TP_FINAL/Drivers/API/Inc" -I"/home/franco/CESE/PDM/PdM_workspace/TP_FINAL/Drivers/API/Src" -I"/home/franco/CESE/PDM/PdM_workspace/TP_FINAL/Drivers/BSP" -I"/home/franco/CESE/PDM/PdM_workspace/TP_FINAL/Drivers/BSP/STM32F4xx_Nucleo_144" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+arm-none-eabi-gcc -o "TP_FINAL.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/franco/CESE/PDM/PdM_workspace/TP_FINAL/STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="TP_FINAL.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: TP_FINAL.elf
+ 
+arm-none-eabi-size  TP_FINAL.elf 
+arm-none-eabi-objdump -h -S TP_FINAL.elf  > "TP_FINAL.list"
+   text	   data	    bss	    dec	    hex	filename
+  22496	     28	   2244	  24768	   60c0	TP_FINAL.elf
+Finished building: default.size.stdout
+ 
+Finished building: TP_FINAL.list
+ 
+18:45:40 **** Incremental Build of configuration Debug for project TP_FINAL ****
+make -j8 all 
+arm-none-eabi-size  TP_FINAL.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22496	     28	   2244	  24768	   60c0	TP_FINAL.elf
+Finished building: default.size.stdout
+ 

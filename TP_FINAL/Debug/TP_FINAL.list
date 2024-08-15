@@ -39,15 +39,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  17 .debug_macro  0002876c  00000000  00000000  0001ee86  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_line   00017b5b  00000000  00000000  000475f2  2**0
+ 18 .debug_line   00017b5f  00000000  00000000  000475f2  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_str    000e5a74  00000000  00000000  0005f14d  2**0
+ 19 .debug_str    000e5a74  00000000  00000000  0005f151  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .comment      00000043  00000000  00000000  00144bc1  2**0
+ 20 .comment      00000043  00000000  00000000  00144bc5  2**0
                   CONTENTS, READONLY
- 21 .debug_frame  00004244  00000000  00000000  00144c04  2**2
+ 21 .debug_frame  00004244  00000000  00000000  00144c08  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 22 .debug_line_str 0000005b  00000000  00000000  00148e48  2**0
+ 22 .debug_line_str 0000005b  00000000  00000000  00148e4c  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -2294,7 +2294,7 @@ static void APP_FSM_update(void)
         if (temperature > THRESHOLD_TEMP) // Transition to ALARM state
  8000ff0:	4b34      	ldr	r3, [pc, #208]	@ (80010c4 <APP_FSM_update+0xf0>)
  8000ff2:	edd3 7a00 	vldr	s15, [r3]
- 8000ff6:	eeb3 7a08 	vmov.f32	s14, #56	@ 0x41c00000  24.0
+ 8000ff6:	eeb3 7a05 	vmov.f32	s14, #53	@ 0x41a80000  21.0
  8000ffa:	eef4 7ac7 	vcmpe.f32	s15, s14
  8000ffe:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
  8001002:	dd15      	ble.n	8001030 <APP_FSM_update+0x5c>
@@ -2320,12 +2320,13 @@ static void APP_FSM_update(void)
             uartSendString((uint8_t *)messageFsm);
  8001024:	4825      	ldr	r0, [pc, #148]	@ (80010bc <APP_FSM_update+0xe8>)
  8001026:	f000 fe1f 	bl	8001c68 <uartSendString>
-            APP_lcdAlarm();
+
+            APP_lcdAlarm(); // display alarm message on LCD subsection
  800102a:	f7ff ff87 	bl	8000f3c <APP_lcdAlarm>
-        {
             strcpy(messageFsm, "Temperature Normal State.\r\n");
             uartSendString((uint8_t *)messageFsm);
-            APP_lcdDisplayDate();
+
+            APP_lcdDisplayDate(); // display date message on LCD subsection
         }
         break;
  800102e:	e042      	b.n	80010b6 <APP_FSM_update+0xe2>
@@ -2341,7 +2342,7 @@ static void APP_FSM_update(void)
             uartSendString((uint8_t *)messageFsm);
  8001044:	481d      	ldr	r0, [pc, #116]	@ (80010bc <APP_FSM_update+0xe8>)
  8001046:	f000 fe0f 	bl	8001c68 <uartSendString>
-            APP_lcdDisplayDate();
+            APP_lcdDisplayDate(); // display date message on LCD subsection
  800104a:	f7ff ffa3 	bl	8000f94 <APP_lcdDisplayDate>
         break;
  800104e:	e032      	b.n	80010b6 <APP_FSM_update+0xe2>
@@ -2350,7 +2351,7 @@ static void APP_FSM_update(void)
         if (temperature < THRESHOLD_TEMP) // Transition to NORMAL state
  8001050:	4b1c      	ldr	r3, [pc, #112]	@ (80010c4 <APP_FSM_update+0xf0>)
  8001052:	edd3 7a00 	vldr	s15, [r3]
- 8001056:	eeb3 7a08 	vmov.f32	s14, #56	@ 0x41c00000  24.0
+ 8001056:	eeb3 7a05 	vmov.f32	s14, #53	@ 0x41a80000  21.0
  800105a:	eef4 7ac7 	vcmpe.f32	s15, s14
  800105e:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
  8001062:	d512      	bpl.n	800108a <APP_FSM_update+0xb6>
@@ -2372,12 +2373,13 @@ static void APP_FSM_update(void)
             uartSendString((uint8_t *)messageFsm);
  800107e:	480f      	ldr	r0, [pc, #60]	@ (80010bc <APP_FSM_update+0xe8>)
  8001080:	f000 fdf2 	bl	8001c68 <uartSendString>
-            APP_lcdDisplayDate();
+
+            APP_lcdDisplayDate(); // display date message on LCD subsection
  8001084:	f7ff ff86 	bl	8000f94 <APP_lcdDisplayDate>
-        {
             strcpy(messageFsm, "Temperature Alarm State.\r\n");
             uartSendString((uint8_t *)messageFsm);
-            APP_lcdAlarm();
+
+            APP_lcdAlarm(); // display alarm message on LCD subsection
         }
         break;
  8001088:	e015      	b.n	80010b6 <APP_FSM_update+0xe2>
@@ -2397,7 +2399,7 @@ static void APP_FSM_update(void)
             uartSendString((uint8_t *)messageFsm);
  80010a4:	4805      	ldr	r0, [pc, #20]	@ (80010bc <APP_FSM_update+0xe8>)
  80010a6:	f000 fddf 	bl	8001c68 <uartSendString>
-            APP_lcdAlarm();
+            APP_lcdAlarm(); // display alarm message on LCD subsection
  80010aa:	f7ff ff47 	bl	8000f3c <APP_lcdAlarm>
         break;
  80010ae:	e002      	b.n	80010b6 <APP_FSM_update+0xe2>
@@ -2568,13 +2570,13 @@ void APP_update(void)
     APP_lcdUpdateTime();
  8001180:	f7ff ffa6 	bl	80010d0 <APP_lcdUpdateTime>
 
-    APP_prepareAndDisplaySensorData();
- 8001184:	f7ff ffc4 	bl	8001110 <APP_prepareAndDisplaySensorData>
-    APP_prepareAndSendUARTData();
- 8001188:	f7ff ffca 	bl	8001120 <APP_prepareAndSendUARTData>
-
     APP_FSM_update();
- 800118c:	f7ff ff22 	bl	8000fd4 <APP_FSM_update>
+ 8001184:	f7ff ff26 	bl	8000fd4 <APP_FSM_update>
+
+    APP_prepareAndDisplaySensorData();
+ 8001188:	f7ff ffc2 	bl	8001110 <APP_prepareAndDisplaySensorData>
+    APP_prepareAndSendUARTData();
+ 800118c:	f7ff ffc8 	bl	8001120 <APP_prepareAndSendUARTData>
 }
  8001190:	bf00      	nop
  8001192:	bd80      	pop	{r7, pc}

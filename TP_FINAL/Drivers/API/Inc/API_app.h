@@ -16,7 +16,7 @@
 
 /* APP FSM logic define parameters -------------------------------------------*/
 
-#define THRESHOLD_TEMP 24 // Temperature threshold in degrees Celsius for state change
+#define THRESHOLD_TEMP 21 // Temperature threshold in degrees Celsius for state change
 
 /* APP LCD display define parameters -----------------------------------------*/
 

@@ -293,8 +293,8 @@ void APP_update(void)
 
     APP_lcdUpdateTime();
 
+    APP_FSM_update();
+
     APP_prepareAndDisplaySensorData();
     APP_prepareAndSendUARTData();
-
-    APP_FSM_update();
 }
