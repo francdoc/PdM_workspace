@@ -37,8 +37,8 @@ bool_t uartInit(void)
 }
 
 /**
- * @brief  Send a null-terminated string via UART.
- * @param  uint8_t * pstring: pointer to the null-terminated string.
+ * @brief  Send a sring via UART.
+ * @param  uint8_t * pstring: pointer to the string.
  * @retval None.
  */
 void uartSendString(uint8_t *pstring)
@@ -55,8 +55,8 @@ void uartSendString(uint8_t *pstring)
 }
 
 /**
- * @brief  Send a specific number of characters from a null-terminated string via UART.
- * @param  uint8_t * pstring: pointer to the null-terminated string.
+ * @brief  Send a specific number of characters from a string via UART.
+ * @param  uint8_t * pstring: pointer to the string.
  * @param  uint16_t size: number of characters to send.
  * @retval None.
  */

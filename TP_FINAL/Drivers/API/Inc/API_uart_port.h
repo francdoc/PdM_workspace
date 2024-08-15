@@ -1,12 +1,15 @@
 #ifndef API_INC_API_UART_PORT_H_
 #define API_INC_API_UART_PORT_H_
 
+/* Includes ------------------------------------------------------------------*/
 #include <stdio.h>
 #include <stdint.h>
 #include <string.h>
 #include <stdbool.h>
 
-#include "stm32f4xx_hal.h" /* <- HAL include */
+#include "stm32f4xx_hal.h" /* HAL include */
+
+/* Constants and Macros ------------------------------------------------------*/
 
 #define TxTIMEOUT 5000
 #define RxTIMEOUT 10
@@ -19,7 +22,8 @@
 #define USARTx_FORCE_RESET() __HAL_RCC_USART3_FORCE_RESET()
 #define USARTx_RELEASE_RESET() __HAL_RCC_USART3_RELEASE_RESET()
 
-/* Definition for USARTx Pins */
+/* Definition for USARTx Pins ------------------------------------------------*/
+
 #define USARTx_TX_PIN GPIO_PIN_8
 #define USARTx_TX_GPIO_PORT GPIOD
 #define USARTx_TX_AF GPIO_AF7_USART3
@@ -27,7 +31,11 @@
 #define USARTx_RX_GPIO_PORT GPIOD
 #define USARTx_RX_AF GPIO_AF7_USART3
 
+/* External Variables --------------------------------------------------------*/
+
 extern UART_HandleTypeDef UartHandle;
+
+/* Function Prototypes -------------------------------------------------------*/
 
 uint8_t UART_HAL_Init(void);
 uint8_t UART_HAL_Tx(const uint8_t *pstring, uint16_t size);
