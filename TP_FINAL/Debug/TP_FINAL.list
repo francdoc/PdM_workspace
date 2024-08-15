@@ -39,11 +39,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  17 .debug_macro  0002814d  00000000  00000000  0001e174  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_line   000168ce  00000000  00000000  000462c1  2**0
+ 18 .debug_line   000168d0  00000000  00000000  000462c1  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_str    000e5937  00000000  00000000  0005cb8f  2**0
+ 19 .debug_str    000e5937  00000000  00000000  0005cb91  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .comment      00000043  00000000  00000000  001424c6  2**0
+ 20 .comment      00000043  00000000  00000000  001424c8  2**0
                   CONTENTS, READONLY
  21 .debug_frame  00004114  00000000  00000000  0014250c  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
@@ -3662,12 +3662,15 @@ bool_t delayRead(delay_t *delay)
  800180a:	bd80      	pop	{r7, pc}
 
 0800180c <DELAY_HAL_GetTick>:
-#include "API_delay_port.h"
-
-uint32_t DELAY_HAL_GetTick(void){
+ *         which increments every millisecond. It is typically used for implementing delays or measuring time intervals.
+ * @param  None
+ * @retval uint32_t: The current tick value in milliseconds.
+ */
+uint32_t DELAY_HAL_GetTick(void)
+{
  800180c:	b580      	push	{r7, lr}
  800180e:	af00      	add	r7, sp, #0
-	return HAL_GetTick();
+    return HAL_GetTick();
  8001810:	f000 fae6 	bl	8001de0 <HAL_GetTick>
  8001814:	4603      	mov	r3, r0
 }

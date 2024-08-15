@@ -1,5 +1,7 @@
 #include "API_delay.h"
 
+/* Public Function Definitions ----------------------------------------------- */
+
 /**
  * @brief  Initializes delay data structure
  * @param  delay is a pointer to the delay structure
