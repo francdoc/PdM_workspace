@@ -48,6 +48,8 @@ I2C_HandleTypeDef hi2c1;
 
 SPI_HandleTypeDef hspi1;
 
+UART_HandleTypeDef UartHandle;
+
 RTC_HandleTypeDef hrtc;
 
 /* USER CODE BEGIN PV */
@@ -75,9 +77,6 @@ static void MX_GPIO_Init(void);
  * @brief  The application entry point.
  * @retval int
  */
-
-#define MAX_BUFFER 50 // Example buffer size
-uint8_t uartBuffer[MAX_BUFFER];
 
 int main(void)
 {

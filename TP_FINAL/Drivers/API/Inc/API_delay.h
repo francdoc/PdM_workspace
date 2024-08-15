@@ -7,6 +7,7 @@
 #include <stdbool.h>
 
 #include "stm32f4xx_hal.h"
+
 #include "API_delay_port.h"
 
 /* Type Definitions ----------------------------------------------------------*/

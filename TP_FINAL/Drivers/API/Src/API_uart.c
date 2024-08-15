@@ -3,9 +3,6 @@
 
 /* Private variable ----------------------------------------------------------*/
 
-/* UART handler declaration */
-UART_HandleTypeDef UartHandle;
-
 /* Private function prototypes -----------------------------------------------*/
 static void Error_Handler(void);
 
@@ -28,7 +25,7 @@ bool_t uartInit(void)
   UartHandle.Init.Mode = UART_MODE_TX_RX;
   UartHandle.Init.OverSampling = UART_OVERSAMPLING_16;
 
-  if (HAL_UART_Init(&UartHandle) != HAL_OK)
+  if (OK != UART_HAL_Init())
   {
     /* Initialization Error */
     return false;
@@ -48,8 +45,10 @@ void uartSendString(uint8_t *pstring)
 {
   if (NULL != pstring && MAXbUFFER > strlen((char *)pstring))
   {
-    if (HAL_OK != HAL_UART_Transmit(&UartHandle, pstring, strlen((char *)pstring), TxTIMEOUT))
+    if (OK != UART_HAL_Tx(pstring, strlen((char *)pstring)))
+    {
       Error_Handler();
+    }
   }
   else
     Error_Handler();
@@ -65,8 +64,10 @@ void uartSendStringSize(uint8_t *pstring, uint16_t size)
 {
   if (NULL != pstring && MAXbUFFER > size && 0 < size)
   {
-    if (HAL_OK != HAL_UART_Transmit(&UartHandle, pstring, size, TxTIMEOUT))
+    if (OK != UART_HAL_Tx(pstring, size))
+    {
       Error_Handler();
+    }
   }
   else
     Error_Handler();
@@ -82,8 +83,10 @@ void uartReceiveStringSize(uint8_t *pstring, uint16_t size)
 {
   if (NULL != pstring && MAXbUFFER > size && 0 < size)
   {
-    if (HAL_ERROR == HAL_UART_Receive(&UartHandle, pstring, size, RxTIMEOUT))
+    if (OK != UART_HAL_Rx(pstring, size))
+    {
       Error_Handler();
+    }
   }
   else
     Error_Handler();
