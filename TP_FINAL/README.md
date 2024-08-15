@@ -17,6 +17,7 @@ Este proyecto consiste en desarrollar un módulo de monitoreo de temperatura uti
 
 **Periféricos Utilizados**
 
-    **UART**: Para la transmisión de datos hacia la PC.
+    UART: Para la transmisión de datos hacia la PC.
     SPI: Comunicación con el sensor BME280.
     I2C: Interfaz con la pantalla LCD.
+    RTC: Real-Time Clock para trackear el tiempo en el sistema.
