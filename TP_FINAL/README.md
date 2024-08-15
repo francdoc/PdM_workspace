@@ -1,6 +1,6 @@
 ### TP_FINAL_PCSE_CESE
 
-**Trabajo Final de Programación de Microcontroladores**
+**Trabajo Final**
 
 - Materia: Programación de Microcontroladores
 - Docente: Patricio Bos
