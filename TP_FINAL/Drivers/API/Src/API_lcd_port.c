@@ -3,6 +3,13 @@
 
 /* Public functions ----------------------------------------------------------*/
 
+/**
+ * @brief  Sends a byte of data to the LCD via the I2C interface.
+ * @note   This function transmits the provided value to the LCD device over the I2C bus. It uses the I2C handle `hi2c1`
+ *         and assumes that the LCD is configured to operate with the provided I2C address.
+ * @param  valor: The byte of data to be transmitted to the LCD.
+ * @retval None
+ */
 void LCD_HAL_I2C_Write(uint8_t valor)
 {
   HAL_I2C_Master_Transmit(&hi2c1, LCD_I2C_ADDRESS << LCD_WRITE_CMD, &valor, sizeof(valor), HAL_MAX_DELAY);

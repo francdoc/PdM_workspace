@@ -7,6 +7,8 @@
 
 #include "stm32f4xx_hal.h"
 
+#include "API_delay_port.h"
+
 typedef uint32_t tick_t;
 typedef bool bool_t;
 

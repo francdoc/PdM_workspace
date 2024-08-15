@@ -27,13 +27,13 @@ bool_t delayRead(delay_t *delay)
 	{
 		if (!delay->running)
 		{
-			delay->startTime = HAL_GetTick();
+			delay->startTime = DELAY_HAL_GetTick();
 			delay->running = true;
 			return false;
 		}
 		if (delay->running)
 		{
-			tick_t now = HAL_GetTick();
+			tick_t now = DELAY_HAL_GetTick();
 			tick_t timeElapsed = now - delay->startTime;
 			if ((timeElapsed >= delay->duration))
 			{

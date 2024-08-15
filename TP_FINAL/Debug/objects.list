@@ -10,6 +10,7 @@
 "./Drivers/API/Src/API_bme280_port.o"
 "./Drivers/API/Src/API_clock_date.o"
 "./Drivers/API/Src/API_delay.o"
+"./Drivers/API/Src/API_delay_port.o"
 "./Drivers/API/Src/API_lcd.o"
 "./Drivers/API/Src/API_lcd_port.o"
 "./Drivers/API/Src/API_uart.o"
