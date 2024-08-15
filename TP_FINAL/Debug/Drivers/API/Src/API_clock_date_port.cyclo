@@ -1,5 +1,5 @@
 ../Drivers/API/Src/API_clock_date_port.c:12:6:CLOCK_DATE_HAL_SetInitialTime	1
-../Drivers/API/Src/API_clock_date_port.c:29:9:CLOCK_DATE_HAL_ConfigInitialTime	2
-../Drivers/API/Src/API_clock_date_port.c:44:6:CLOCK_DATE_HAL_SetInitialDate	1
-../Drivers/API/Src/API_clock_date_port.c:60:9:CLOCK_DATE_HAL_ConfigInitialDate	2
-../Drivers/API/Src/API_clock_date_port.c:75:6:CLOCK_DATE_HAL_GetTimeDate	1
+../Drivers/API/Src/API_clock_date_port.c:30:9:CLOCK_DATE_HAL_ConfigInitialTime	2
+../Drivers/API/Src/API_clock_date_port.c:45:6:CLOCK_DATE_HAL_SetInitialDate	1
+../Drivers/API/Src/API_clock_date_port.c:61:9:CLOCK_DATE_HAL_ConfigInitialDate	2
+../Drivers/API/Src/API_clock_date_port.c:76:6:CLOCK_DATE_HAL_GetTimeDate	1

@@ -136,10 +136,10 @@ static void calibrationParams(void)
   // Extract data for first trimming humidity value (dig_H3)
   dig_H3 = calibDataBuffer2[DIG_H3_INDEX];
 
-  // For dig_H4, special bit manipulations are required to combine parts of two different bytes
-  dig_H4 = (calibDataBuffer2[DIG_H4_MSB_INDEX] << 4) | extractBits(calibDataBuffer2[DIG_H4_LSB_INDEX], 0x0F, 0);
+  // For dig_H4, special bit manipulations are required to combine parts of two different bytes -> dig_H4 [11:4] / [3:0] (pg. 24/60 datasheet)
+  dig_H4 = (calibDataBuffer2[DIG_H4_MSB_INDEX] << 4) | extractBits(calibDataBuffer2[DIG_H4_LSB_INDEX], DIG_H4_BIT_MASK, DIG_H4_LSB_SHIFT);
 
-  // For dig_H5, special bit manipulations are required to combine parts of two different bytes
+  // For dig_H5, special bit manipulations are required to combine parts of two different bytes as well
   dig_H5 = (calibDataBuffer2[DIG_H5_MSB_INDEX] << 4) | (calibDataBuffer2[DIG_H5_LSB_INDEX] >> 4);
 
   // Store the final humidity calibration value directly from the corresponding byte
@@ -286,12 +286,12 @@ uint8_t API_BME280_ReadAndProcess()
 
     // The BME280 output consists of the ADC output values that have to be compensated afterwards.
 
-    // Combine the bytes to form the 20-bit temperature value (temp_adc).
+    // Combine the bytes to form the 20-bit temperature value (temp_adc) -> reference: https://github.com/boschsensortec/BME280_SensorAPI/blob/master/bme280.c#L1045
     temp_adc = (sensorDataBuffer[TEMP_MSB_INDEX] << TEMP_MSB_SHIFT) |
                (sensorDataBuffer[TEMP_LSB_INDEX] << TEMP_LSB_SHIFT) |
                (sensorDataBuffer[TEMP_XLSB_INDEX] >> TEMP_XLSB_SHIFT);
 
-    // Apply compensation formula to temperature ADC value -> reference: https://github.com/boschsensortec/BME280_SensorAPI/blob/master/bme280.c#L1045
+    // Apply compensation formula to temperature ADC value
     bme280_temperature = ((float)BME280_compensate_T_int32(temp_adc)) / TEMPERATURE_SCALE_FACTOR;
 
     // Combine the bytes to form the 16-bit humidity value (hum_adc) -> reference: https://github.com/boschsensortec/BME280_SensorAPI/blob/master/bme280.c#L1050

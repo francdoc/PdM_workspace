@@ -101,6 +101,9 @@ register only become effective after a write operation to “ctrl_meas”.*/
 #define TEMP_XLSB_SHIFT 4 // "Extra" bits, so only 4 bits are significant
 #define HUM_MSB_SHIFT 8
 
+#define DIG_H4_BIT_MASK 0x0F // Mask to extract bits [3:0]
+#define DIG_H4_LSB_SHIFT 0
+
 // Scale factors for converting raw ADC values to human-readable units
 #define TEMPERATURE_SCALE_FACTOR 100.0f // Scale factor to convert compensated temperature to degrees Celsius.
 #define HUMIDITY_SCALE_FACTOR 1024.0f   // Scale factor to convert compensated humidity to percentage RH.

@@ -37,17 +37,17 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  16 .debug_rnglists 00000c9e  00000000  00000000  0001e1e8  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_macro  00028760  00000000  00000000  0001ee86  2**0
+ 17 .debug_macro  0002876c  00000000  00000000  0001ee86  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_line   00017b5b  00000000  00000000  000475e6  2**0
+ 18 .debug_line   00017b5b  00000000  00000000  000475f2  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_str    000e5a4c  00000000  00000000  0005f141  2**0
+ 19 .debug_str    000e5a74  00000000  00000000  0005f14d  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .comment      00000043  00000000  00000000  00144b8d  2**0
+ 20 .comment      00000043  00000000  00000000  00144bc1  2**0
                   CONTENTS, READONLY
- 21 .debug_frame  00004244  00000000  00000000  00144bd0  2**2
+ 21 .debug_frame  00004244  00000000  00000000  00144c04  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 22 .debug_line_str 0000005b  00000000  00000000  00148e14  2**0
+ 22 .debug_line_str 0000005b  00000000  00000000  00148e48  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -2294,7 +2294,7 @@ static void APP_FSM_update(void)
         if (temperature > THRESHOLD_TEMP) // Transition to ALARM state
  8000ff0:	4b34      	ldr	r3, [pc, #208]	@ (80010c4 <APP_FSM_update+0xf0>)
  8000ff2:	edd3 7a00 	vldr	s15, [r3]
- 8000ff6:	eeb3 7a06 	vmov.f32	s14, #54	@ 0x41b00000  22.0
+ 8000ff6:	eeb3 7a08 	vmov.f32	s14, #56	@ 0x41c00000  24.0
  8000ffa:	eef4 7ac7 	vcmpe.f32	s15, s14
  8000ffe:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
  8001002:	dd15      	ble.n	8001030 <APP_FSM_update+0x5c>
@@ -2350,7 +2350,7 @@ static void APP_FSM_update(void)
         if (temperature < THRESHOLD_TEMP) // Transition to NORMAL state
  8001050:	4b1c      	ldr	r3, [pc, #112]	@ (80010c4 <APP_FSM_update+0xf0>)
  8001052:	edd3 7a00 	vldr	s15, [r3]
- 8001056:	eeb3 7a06 	vmov.f32	s14, #54	@ 0x41b00000  22.0
+ 8001056:	eeb3 7a08 	vmov.f32	s14, #56	@ 0x41c00000  24.0
  800105a:	eef4 7ac7 	vcmpe.f32	s15, s14
  800105e:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
  8001062:	d512      	bpl.n	800108a <APP_FSM_update+0xb6>
@@ -2780,8 +2780,8 @@ static void calibrationParams(void)
  800129e:	4b17      	ldr	r3, [pc, #92]	@ (80012fc <calibrationParams+0xd8>)
  80012a0:	701a      	strb	r2, [r3, #0]
 
-  // For dig_H4, special bit manipulations are required to combine parts of two different bytes
-  dig_H4 = (calibDataBuffer2[DIG_H4_MSB_INDEX] << 4) | extractBits(calibDataBuffer2[DIG_H4_LSB_INDEX], 0x0F, 0);
+  // For dig_H4, special bit manipulations are required to combine parts of two different bytes -> dig_H4 [11:4] / [3:0] (pg. 24/60 datasheet)
+  dig_H4 = (calibDataBuffer2[DIG_H4_MSB_INDEX] << 4) | extractBits(calibDataBuffer2[DIG_H4_LSB_INDEX], DIG_H4_BIT_MASK, DIG_H4_LSB_SHIFT);
  80012a2:	79fb      	ldrb	r3, [r7, #7]
  80012a4:	011b      	lsls	r3, r3, #4
  80012a6:	b21c      	sxth	r4, r3
@@ -2797,7 +2797,7 @@ static void calibrationParams(void)
  80012bc:	4b10      	ldr	r3, [pc, #64]	@ (8001300 <calibrationParams+0xdc>)
  80012be:	801a      	strh	r2, [r3, #0]
 
-  // For dig_H5, special bit manipulations are required to combine parts of two different bytes
+  // For dig_H5, special bit manipulations are required to combine parts of two different bytes as well
   dig_H5 = (calibDataBuffer2[DIG_H5_MSB_INDEX] << 4) | (calibDataBuffer2[DIG_H5_LSB_INDEX] >> 4);
  80012c0:	7a3b      	ldrb	r3, [r7, #8]
  80012c2:	011b      	lsls	r3, r3, #4
@@ -3152,7 +3152,7 @@ uint8_t API_BME280_ReadAndProcess()
 
     // The BME280 output consists of the ADC output values that have to be compensated afterwards.
 
-    // Combine the bytes to form the 20-bit temperature value (temp_adc).
+    // Combine the bytes to form the 20-bit temperature value (temp_adc) -> reference: https://github.com/boschsensortec/BME280_SensorAPI/blob/master/bme280.c#L1045
     temp_adc = (sensorDataBuffer[TEMP_MSB_INDEX] << TEMP_MSB_SHIFT) |
  8001516:	7afb      	ldrb	r3, [r7, #11]
  8001518:	031a      	lsls	r2, r3, #12
@@ -3171,7 +3171,7 @@ uint8_t API_BME280_ReadAndProcess()
  8001528:	4a18      	ldr	r2, [pc, #96]	@ (800158c <API_BME280_ReadAndProcess+0x9c>)
  800152a:	6013      	str	r3, [r2, #0]
 
-    // Apply compensation formula to temperature ADC value -> reference: https://github.com/boschsensortec/BME280_SensorAPI/blob/master/bme280.c#L1045
+    // Apply compensation formula to temperature ADC value
     bme280_temperature = ((float)BME280_compensate_T_int32(temp_adc)) / TEMPERATURE_SCALE_FACTOR;
  800152c:	4b17      	ldr	r3, [pc, #92]	@ (800158c <API_BME280_ReadAndProcess+0x9c>)
  800152e:	681b      	ldr	r3, [r3, #0]
@@ -3508,18 +3508,19 @@ void CLOCK_DATE_HAL_SetInitialTime(void)
  8001710:	b480      	push	{r7}
  8001712:	af00      	add	r7, sp, #0
 	// TODO: should be configurable via UART. Must change CLOCK_DATE_HAL_SetInitialTime function signature to allow inputs.
-    sTime.Hours = 0x01;
+    sTime.Hours = 0x11;
  8001714:	4b09      	ldr	r3, [pc, #36]	@ (800173c <CLOCK_DATE_HAL_SetInitialTime+0x2c>)
- 8001716:	2201      	movs	r2, #1
+ 8001716:	2211      	movs	r2, #17
  8001718:	701a      	strb	r2, [r3, #0]
-    sTime.Minutes = 0x20;
+    sTime.Minutes = 0x10;
  800171a:	4b08      	ldr	r3, [pc, #32]	@ (800173c <CLOCK_DATE_HAL_SetInitialTime+0x2c>)
- 800171c:	2220      	movs	r2, #32
+ 800171c:	2210      	movs	r2, #16
  800171e:	705a      	strb	r2, [r3, #1]
     sTime.Seconds = 0x00;
  8001720:	4b06      	ldr	r3, [pc, #24]	@ (800173c <CLOCK_DATE_HAL_SetInitialTime+0x2c>)
  8001722:	2200      	movs	r2, #0
  8001724:	709a      	strb	r2, [r3, #2]
+
     sTime.DayLightSaving = RTC_DAYLIGHTSAVING_NONE;
  8001726:	4b05      	ldr	r3, [pc, #20]	@ (800173c <CLOCK_DATE_HAL_SetInitialTime+0x2c>)
  8001728:	2200      	movs	r2, #0
@@ -3589,9 +3590,9 @@ void CLOCK_DATE_HAL_SetInitialDate(void)
  800177a:	4b07      	ldr	r3, [pc, #28]	@ (8001798 <CLOCK_DATE_HAL_SetInitialDate+0x28>)
  800177c:	2208      	movs	r2, #8
  800177e:	705a      	strb	r2, [r3, #1]
-    sDate.Date = 0x10;
+    sDate.Date = 0x15;
  8001780:	4b05      	ldr	r3, [pc, #20]	@ (8001798 <CLOCK_DATE_HAL_SetInitialDate+0x28>)
- 8001782:	2210      	movs	r2, #16
+ 8001782:	2215      	movs	r2, #21
  8001784:	709a      	strb	r2, [r3, #2]
     sDate.Year = 0x24;
  8001786:	4b04      	ldr	r3, [pc, #16]	@ (8001798 <CLOCK_DATE_HAL_SetInitialDate+0x28>)
