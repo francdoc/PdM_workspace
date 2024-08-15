@@ -1,6 +1,3 @@
-#ifndef API_SRC_API_CLOCK_DATE_C_
-#define API_SRC_API_CLOCK_DATE_C_
-
 #include "API_clock_date.h"
 
 /**
@@ -50,5 +47,3 @@ void ClockUpdateTimeDate(void)
 {
     CLOCK_DATE_HAL_GetTimeDate();
 }
-
-#endif /* API_SRC_API_CLOCK_DATE_C_ */
