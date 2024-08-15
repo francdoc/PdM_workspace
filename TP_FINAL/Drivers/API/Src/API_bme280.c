@@ -48,11 +48,11 @@ static BME280_U32_t BME280_compensate_H_int32(BME280_S32_t adc_H);
 static uint16_t combineBytes(uint8_t msb, uint8_t lsb)
 {
   // Safety check to ensure that inputs are 8 bits wide and are not being potentially truncated if they were bigger than uint8_t. .
-  if (msb > 0xFF || lsb > 0xFF)
+  if (msb > 0xFF || lsb > 0xFF) // 0xFF = 0b11111111;
   {
     API_BME280_ErrorHandler();
   }
-  return ((uint16_t)msb << 8) | lsb;
+  return ((uint16_t)msb << 8) | lsb; // 16-bit integer as a result.
 }
 
 /**
@@ -130,7 +130,10 @@ static void calibrationParams(void)
   // Extract data for first trimming humidity value (dig_H1)
   dig_H1 = calibDataBuffer1[DIG_H1_INDEX];
 
+  // Extract data for first trimming humidity value (dig_H2)
   dig_H2 = combineBytes(calibDataBuffer2[DIG_H2_MSB_INDEX], calibDataBuffer2[DIG_H2_LSB_INDEX]);
+
+  // Extract data for first trimming humidity value (dig_H3)
   dig_H3 = calibDataBuffer2[DIG_H3_INDEX];
 
   // For dig_H4, special bit manipulations are required to combine parts of two different bytes
@@ -272,6 +275,7 @@ uint8_t API_BME280_ReadAndProcess()
      * - 0xFD to 0xFE: Raw humidity data (16 bits) -> Section 5.4.9.
      *
      * This means that with 46 bits (8 bytes) we can hold all the sampled data in 1 burst read.
+     *
      * See Table 18: Memory map for more context.
      *
      * BYTE 7 | BYTE 6 | BYTE 5 | BYTE 4 | BYTE 3 | BYTE 2 | BYTE 1 | BYTE 0
@@ -287,10 +291,10 @@ uint8_t API_BME280_ReadAndProcess()
                (sensorDataBuffer[TEMP_LSB_INDEX] << TEMP_LSB_SHIFT) |
                (sensorDataBuffer[TEMP_XLSB_INDEX] >> TEMP_XLSB_SHIFT);
 
-    // Apply compensation formula to temperature ADC value.
+    // Apply compensation formula to temperature ADC value -> reference: https://github.com/boschsensortec/BME280_SensorAPI/blob/master/bme280.c#L1045
     bme280_temperature = ((float)BME280_compensate_T_int32(temp_adc)) / TEMPERATURE_SCALE_FACTOR;
 
-    // Combine the bytes to form the 16-bit humidity value (hum_adc).
+    // Combine the bytes to form the 16-bit humidity value (hum_adc) -> reference: https://github.com/boschsensortec/BME280_SensorAPI/blob/master/bme280.c#L1050
     hum_adc = (sensorDataBuffer[HUM_MSB_INDEX] << HUM_MSB_SHIFT) |
               sensorDataBuffer[HUM_LSB_INDEX];
 

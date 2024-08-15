@@ -56,10 +56,12 @@ static void APP_uartPrepareData(float bme280_data, char *message, const char *ta
     int fracPart = (int)((bme280_data - intPart) * FRACTIONAL_MULTIPLIER);
 
     strcpy(message, tag);
+
     memset(strbuff, ZEROVAL, sizeof(strbuff));
     itoa(intPart, strbuff, DECIMAL);
     strcat(message, strbuff);
     strcat(message, ".");
+
     memset(strbuff, ZEROVAL, sizeof(strbuff));
     itoa(fracPart, strbuff, DECIMAL);
     strcat(message, strbuff);
@@ -221,6 +223,7 @@ static void APP_lcdUpdateTime(void)
 static void APP_updateSensorData(void)
 {
     API_BME280_ReadAndProcess();
+
     temperature = API_BME280_GetTemperature();
     humidity = API_BME280_GetHumidity();
 }
@@ -245,6 +248,7 @@ static void APP_prepareAndSendUARTData(void)
     memset(message_hum, ZEROVAL, sizeof(message_hum));
 
     APP_uartPrepareSensorTempHum(message_tem, message_hum);
+
     APP_uartDisplaySensorData(message_tem, message_hum);
 }
 
@@ -267,9 +271,11 @@ static void APP_FsmErrorHandler()
 void APP_init(void)
 {
     clockInit();
-    APP_FSM_init();
-    API_BME280_Init();
     uartInit();
+
+    APP_FSM_init();
+
+    API_BME280_Init();
     API_LCD_Initialize();
 }
 
@@ -280,8 +286,11 @@ void APP_init(void)
 void APP_update(void)
 {
     APP_updateSensorData();
+
     APP_lcdUpdateTime();
+
     APP_prepareAndDisplaySensorData();
     APP_prepareAndSendUARTData();
+
     APP_FSM_update();
 }

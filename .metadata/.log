@@ -5265,3 +5265,15 @@ java.io.FileNotFoundException: /home/franco/CESE/PDM/PdM_workspace/Reloj con RTC
 
 !ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-08-15 01:12:22.214
 !MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-08-15 01:56:40.584
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 25 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-08-15 01:56:40.584
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-08-15 01:56:40.585
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 25 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-08-15 01:56:40.585
+!MESSAGE Existing sessions are:
