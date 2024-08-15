@@ -101,10 +101,10 @@ int main(void)
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
-  MX_I2C1_Init();
-  MX_RTC_Init();
-  MX_GPIO_Init();
-  MX_SPI1_Init();
+  MX_I2C1_Init(); // I2C for LCD.
+  MX_RTC_Init();  // RTC for Clock and Date that will be displayed on the LCD screen.
+  MX_GPIO_Init(); // GPIO for SPI chip select.
+  MX_SPI1_Init(); // SPI for BME280 sensor.
 
   /* USER CODE BEGIN 2 */
 

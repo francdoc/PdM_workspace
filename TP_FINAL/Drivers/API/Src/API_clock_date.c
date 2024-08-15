@@ -3,10 +3,6 @@
 
 #include "API_clock_date.h"
 
-// Global variables for storing time and date settings
-RTC_TimeTypeDef sTime = {0}; // Structure to store time values
-RTC_DateTypeDef sDate = {0}; // Structure to store date values
-
 /**
  * @brief  Error handler for the clock and date functions.
  *         This function enters an infinite loop, indicating a critical error.
@@ -28,27 +24,18 @@ void Clock_Error_Handler(void)
  */
 void ClockInit(void)
 {
-    // Set initial time values (in BCD format)
-    sTime.Hours = 0x01;
-    sTime.Minutes = 0x20;
-    sTime.Seconds = 0x00;
-    sTime.DayLightSaving = RTC_DAYLIGHTSAVING_NONE;
-    sTime.StoreOperation = RTC_STOREOPERATION_RESET;
+    CLOCK_DATE_HAL_SetInitialTime();
 
     // Set the RTC time, check for errors
-    if (HAL_RTC_SetTime(&hrtc, &sTime, RTC_FORMAT_BCD) != HAL_OK)
+    if (OK != CLOCK_DATE_HAL_ConfigInitialTime() )
     {
         Clock_Error_Handler();
     }
 
-    // Set initial date values (in BCD format)
-    sDate.WeekDay = RTC_WEEKDAY_MONDAY;
-    sDate.Month = RTC_MONTH_AUGUST;
-    sDate.Date = 0x05;
-    sDate.Year = 0x24;
+    CLOCK_DATE_HAL_SetInitialDate();
 
     // Set the RTC date, check for errors
-    if (HAL_RTC_SetDate(&hrtc, &sDate, RTC_FORMAT_BCD) != HAL_OK)
+    if (OK != CLOCK_DATE_HAL_ConfigInitialDate())
     {
         Clock_Error_Handler();
     }
@@ -61,11 +48,7 @@ void ClockInit(void)
  */
 void ClockUpdateTimeDate(void)
 {
-    // Get the current time from the RTC
-    HAL_RTC_GetTime(&hrtc, &sTime, RTC_FORMAT_BCD);
-
-    // Get the current date from the RTC
-    HAL_RTC_GetDate(&hrtc, &sDate, RTC_FORMAT_BCD);
+    CLOCK_DATE_HAL_GetTimeDate();
 }
 
 #endif /* API_SRC_API_CLOCK_DATE_C_ */
