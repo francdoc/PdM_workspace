@@ -1,9 +1,7 @@
-### TP_FINAL_PCSE_CESE
+### TP_FINAL
 
 **Trabajo Final**
 
-- Materia: Programación de Microcontroladores
-- Docente: Patricio Bos
 - Alumno: Franco Chiesa Docampo
 - Plataforma: NUCLEO-STM32F429ZI
 
