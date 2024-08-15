@@ -173,13 +173,15 @@ static void APP_FSM_update(void)
 
             strcpy(messageFsm, "Temperature Alarm State.\r\n");
             uartSendString((uint8_t *)messageFsm);
-            APP_lcdAlarm();
+
+            APP_lcdAlarm(); // display alarm message on LCD subsection
         }
         else // Remain in NORMAL state
         {
             strcpy(messageFsm, "Temperature Normal State.\r\n");
             uartSendString((uint8_t *)messageFsm);
-            APP_lcdDisplayDate();
+
+            APP_lcdDisplayDate(); // display date message on LCD subsection
         }
         break;
 
@@ -190,13 +192,15 @@ static void APP_FSM_update(void)
 
             strcpy(messageFsm, "Temperature Normal State.\r\n");
             uartSendString((uint8_t *)messageFsm);
-            APP_lcdDisplayDate();
+
+            APP_lcdDisplayDate(); // display date message on LCD subsection
         }
         else // Remain in ALARM state
         {
             strcpy(messageFsm, "Temperature Alarm State.\r\n");
             uartSendString((uint8_t *)messageFsm);
-            APP_lcdAlarm();
+
+            APP_lcdAlarm(); // display alarm message on LCD subsection
         }
         break;
 
