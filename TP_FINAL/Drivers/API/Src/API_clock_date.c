@@ -27,7 +27,7 @@ void ClockInit(void)
     CLOCK_DATE_HAL_SetInitialTime();
 
     // Set the RTC time, check for errors
-    if (OK != CLOCK_DATE_HAL_ConfigInitialTime() )
+    if (OK != CLOCK_DATE_HAL_ConfigInitialTime())
     {
         Clock_Error_Handler();
     }

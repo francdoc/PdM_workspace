@@ -39,15 +39,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  17 .debug_macro  00028766  00000000  00000000  0001ee5e  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_line   00017b58  00000000  00000000  000475c4  2**0
+ 18 .debug_line   00017b5b  00000000  00000000  000475c4  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_str    000e5a67  00000000  00000000  0005f11c  2**0
+ 19 .debug_str    000e5a67  00000000  00000000  0005f11f  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .comment      00000043  00000000  00000000  00144b83  2**0
+ 20 .comment      00000043  00000000  00000000  00144b86  2**0
                   CONTENTS, READONLY
- 21 .debug_frame  00004244  00000000  00000000  00144bc8  2**2
+ 21 .debug_frame  00004244  00000000  00000000  00144bcc  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 22 .debug_line_str 0000005b  00000000  00000000  00148e0c  2**0
+ 22 .debug_line_str 0000005b  00000000  00000000  00148e10  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -3444,7 +3444,7 @@ void ClockInit(void)
  80016dc:	f000 f818 	bl	8001710 <CLOCK_DATE_HAL_SetInitialTime>
 
     // Set the RTC time, check for errors
-    if (OK != CLOCK_DATE_HAL_ConfigInitialTime() )
+    if (OK != CLOCK_DATE_HAL_ConfigInitialTime())
  80016e0:	f000 f82e 	bl	8001740 <CLOCK_DATE_HAL_ConfigInitialTime>
  80016e4:	4603      	mov	r3, r0
  80016e6:	2b00      	cmp	r3, #0
@@ -3487,15 +3487,14 @@ void ClockUpdateTimeDate(void)
  800170e:	bd80      	pop	{r7, pc}
 
 08001710 <CLOCK_DATE_HAL_SetInitialTime>:
-// Define the global variables
-RTC_TimeTypeDef sTime = {0}; // Structure to store time values
-RTC_DateTypeDef sDate = {0}; // Structure to store date values
-
+ * @brief Sets initial time values.
+ *
+ * Configures `sTime` with predefined initial time values in BCD format.
+ */
 void CLOCK_DATE_HAL_SetInitialTime(void)
 {
  8001710:	b480      	push	{r7}
  8001712:	af00      	add	r7, sp, #0
-    // Set initial time values (in BCD format)
     sTime.Hours = 0x01;
  8001714:	4b09      	ldr	r3, [pc, #36]	@ (800173c <CLOCK_DATE_HAL_SetInitialTime+0x2c>)
  8001716:	2201      	movs	r2, #1
@@ -3524,7 +3523,10 @@ void CLOCK_DATE_HAL_SetInitialTime(void)
  800173c:	200002c4 	.word	0x200002c4
 
 08001740 <CLOCK_DATE_HAL_ConfigInitialTime>:
-
+ * Sets the RTC time using `sTime`.
+ *
+ * @return uint8_t Returns 0 if successful, 1 if an error occurs.
+ */
 uint8_t CLOCK_DATE_HAL_ConfigInitialTime(void)
 {
  8001740:	b580      	push	{r7, lr}
@@ -3557,12 +3559,14 @@ uint8_t CLOCK_DATE_HAL_ConfigInitialTime(void)
  800176c:	20000138 	.word	0x20000138
 
 08001770 <CLOCK_DATE_HAL_SetInitialDate>:
-
+ * @brief Sets initial date values.
+ *
+ * Configures `sDate` with predefined initial date values in BCD format.
+ */
 void CLOCK_DATE_HAL_SetInitialDate(void)
 {
  8001770:	b480      	push	{r7}
  8001772:	af00      	add	r7, sp, #0
-    // Set initial date values (in BCD format)
     sDate.WeekDay = RTC_WEEKDAY_MONDAY;
  8001774:	4b08      	ldr	r3, [pc, #32]	@ (8001798 <CLOCK_DATE_HAL_SetInitialDate+0x28>)
  8001776:	2201      	movs	r2, #1
@@ -3588,7 +3592,10 @@ void CLOCK_DATE_HAL_SetInitialDate(void)
  8001798:	200002d8 	.word	0x200002d8
 
 0800179c <CLOCK_DATE_HAL_ConfigInitialDate>:
-
+ * Sets the RTC date using `sDate`.
+ *
+ * @return uint8_t Returns 0 if successful, 1 if an error occurs.
+ */
 uint8_t CLOCK_DATE_HAL_ConfigInitialDate(void)
 {
  800179c:	b580      	push	{r7, lr}
@@ -3621,7 +3628,10 @@ uint8_t CLOCK_DATE_HAL_ConfigInitialDate(void)
  80017c8:	20000138 	.word	0x20000138
 
 080017cc <CLOCK_DATE_HAL_GetTimeDate>:
-
+ * @brief Retrieves current time and date from RTC.
+ *
+ * Updates `sTime` and `sDate` with the current time and date from the RTC.
+ */
 void CLOCK_DATE_HAL_GetTimeDate(void)
 {
  80017cc:	b580      	push	{r7, lr}
@@ -3632,7 +3642,6 @@ void CLOCK_DATE_HAL_GetTimeDate(void)
  80017d2:	4905      	ldr	r1, [pc, #20]	@ (80017e8 <CLOCK_DATE_HAL_GetTimeDate+0x1c>)
  80017d4:	4805      	ldr	r0, [pc, #20]	@ (80017ec <CLOCK_DATE_HAL_GetTimeDate+0x20>)
  80017d6:	f002 faf2 	bl	8003dbe <HAL_RTC_GetTime>
-
     // Get the current date from the RTC
     HAL_RTC_GetDate(&hrtc, &sDate, RTC_FORMAT_BCD);
  80017da:	2201      	movs	r2, #1
