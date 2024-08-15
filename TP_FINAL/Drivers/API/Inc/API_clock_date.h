@@ -4,8 +4,8 @@
 #include "API_clock_date_port.h"
 
 /* Exported functions ------------------------------------------------------- */
-void ClockInit(void);
-void ClockUpdateTimeDate(void);
+void clockInit(void);
+void clockUpdateTimeDate(void);
 void Clock_Error_Handler(void);
 
 #define OK 0

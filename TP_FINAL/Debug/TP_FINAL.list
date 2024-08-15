@@ -2425,8 +2425,8 @@ static void APP_lcdUpdateTime(void)
 {
  80010d0:	b580      	push	{r7, lr}
  80010d2:	af00      	add	r7, sp, #0
-    ClockUpdateTimeDate();
- 80010d4:	f000 fb16 	bl	8001704 <ClockUpdateTimeDate>
+    clockUpdateTimeDate();
+ 80010d4:	f000 fb16 	bl	8001704 <clockUpdateTimeDate>
     APP_lcdDisplayClock();
  80010d8:	f7ff ff3c 	bl	8000f54 <APP_lcdDisplayClock>
 }
@@ -2533,8 +2533,8 @@ void APP_init(void)
 {
  800115c:	b580      	push	{r7, lr}
  800115e:	af00      	add	r7, sp, #0
-    ClockInit();
- 8001160:	f000 faba 	bl	80016d8 <ClockInit>
+    clockInit();
+ 8001160:	f000 faba 	bl	80016d8 <clockInit>
     APP_FSM_init();
  8001164:	f7ff fd94 	bl	8000c90 <APP_FSM_init>
     API_BME280_Init();
@@ -3431,12 +3431,12 @@ void Clock_Error_Handler(void)
  80016d4:	bf00      	nop
  80016d6:	e7fd      	b.n	80016d4 <Clock_Error_Handler+0x4>
 
-080016d8 <ClockInit>:
+080016d8 <clockInit>:
  * @brief  Initializes the RTC clock with a predefined time and date.
  * @param  None
  * @retval None
  */
-void ClockInit(void)
+void clockInit(void)
 {
  80016d8:	b580      	push	{r7, lr}
  80016da:	af00      	add	r7, sp, #0
@@ -3448,7 +3448,7 @@ void ClockInit(void)
  80016e0:	f000 f82e 	bl	8001740 <CLOCK_DATE_HAL_ConfigInitialTime>
  80016e4:	4603      	mov	r3, r0
  80016e6:	2b00      	cmp	r3, #0
- 80016e8:	d001      	beq.n	80016ee <ClockInit+0x16>
+ 80016e8:	d001      	beq.n	80016ee <clockInit+0x16>
     {
         Clock_Error_Handler();
  80016ea:	f7ff fff1 	bl	80016d0 <Clock_Error_Handler>
@@ -3462,7 +3462,7 @@ void ClockInit(void)
  80016f2:	f000 f853 	bl	800179c <CLOCK_DATE_HAL_ConfigInitialDate>
  80016f6:	4603      	mov	r3, r0
  80016f8:	2b00      	cmp	r3, #0
- 80016fa:	d001      	beq.n	8001700 <ClockInit+0x28>
+ 80016fa:	d001      	beq.n	8001700 <clockInit+0x28>
     {
         Clock_Error_Handler();
  80016fc:	f7ff ffe8 	bl	80016d0 <Clock_Error_Handler>
@@ -3471,12 +3471,12 @@ void ClockInit(void)
  8001700:	bf00      	nop
  8001702:	bd80      	pop	{r7, pc}
 
-08001704 <ClockUpdateTimeDate>:
+08001704 <clockUpdateTimeDate>:
  * @brief  Updates the global time and date variables with the current RTC time and date.
  * @param  None
  * @retval None
  */
-void ClockUpdateTimeDate(void)
+void clockUpdateTimeDate(void)
 {
  8001704:	b580      	push	{r7, lr}
  8001706:	af00      	add	r7, sp, #0

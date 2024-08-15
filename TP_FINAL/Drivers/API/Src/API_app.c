@@ -210,7 +210,7 @@ static void APP_FSM_update(void)
  */
 static void APP_lcdUpdateTime(void)
 {
-    ClockUpdateTimeDate();
+    clockUpdateTimeDate();
     APP_lcdDisplayClock();
 }
 
@@ -266,7 +266,7 @@ static void APP_FsmErrorHandler()
  */
 void APP_init(void)
 {
-    ClockInit();
+    clockInit();
     APP_FSM_init();
     API_BME280_Init();
     uartInit();

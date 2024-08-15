@@ -19,7 +19,7 @@ void Clock_Error_Handler(void)
  * @param  None
  * @retval None
  */
-void ClockInit(void)
+void clockInit(void)
 {
     CLOCK_DATE_HAL_SetInitialTime();
 
@@ -43,7 +43,7 @@ void ClockInit(void)
  * @param  None
  * @retval None
  */
-void ClockUpdateTimeDate(void)
+void clockUpdateTimeDate(void)
 {
     CLOCK_DATE_HAL_GetTimeDate();
 }
