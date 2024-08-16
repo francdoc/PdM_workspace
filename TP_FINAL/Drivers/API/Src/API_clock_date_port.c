@@ -11,7 +11,7 @@ RTC_DateTypeDef sDate = {0}; // Stores date values
  */
 void CLOCK_DATE_HAL_SetInitialTime(void)
 {
-	// TODO: should be configurable via UART. Must change CLOCK_DATE_HAL_SetInitialTime function signature to allow inputs.
+    // TODO: should be configurable via UART. Must change CLOCK_DATE_HAL_SetInitialTime function signature to allow inputs.
     sTime.Hours = 0x11;
     sTime.Minutes = 0x10;
     sTime.Seconds = 0x00;
@@ -44,7 +44,7 @@ uint8_t CLOCK_DATE_HAL_ConfigInitialTime(void)
  */
 void CLOCK_DATE_HAL_SetInitialDate(void)
 {
-	// TODO: should be configurable via UART. Must change CLOCK_DATE_HAL_SetInitialDate function signature to allow inputs.
+    // TODO: should be configurable via UART. Must change CLOCK_DATE_HAL_SetInitialDate function signature to allow inputs.
     sDate.WeekDay = RTC_WEEKDAY_MONDAY;
     sDate.Month = RTC_MONTH_AUGUST;
     sDate.Date = 0x15;

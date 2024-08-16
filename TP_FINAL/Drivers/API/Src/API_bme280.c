@@ -317,8 +317,9 @@ uint8_t API_BME280_ReadAndProcess()
  * @param  None
  * @retval float: The latest temperature value in degrees Celsius.
  */
-float API_BME280_GetTemperature(void) {
-    return bme280_temperature;
+float API_BME280_GetTemperature(void)
+{
+  return bme280_temperature;
 }
 
 /**
@@ -328,8 +329,9 @@ float API_BME280_GetTemperature(void) {
  * @param  None
  * @retval float: The latest humidity value in percentage (%RH).
  */
-float API_BME280_GetHumidity(void) {
-    return bme280_humidity;
+float API_BME280_GetHumidity(void)
+{
+  return bme280_humidity;
 }
 
 /**
